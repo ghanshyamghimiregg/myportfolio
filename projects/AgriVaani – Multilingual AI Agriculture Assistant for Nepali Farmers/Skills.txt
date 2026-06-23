@@ -1,0 +1,4 @@
+NLP 
+LLM
+Python
+STT & TTS 

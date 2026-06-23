@@ -1,0 +1,4 @@
+Data Annotation
+AI Model Training
+Computer Vision
+Python

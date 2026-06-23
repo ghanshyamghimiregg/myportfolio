@@ -1,0 +1,5 @@
+Python
+OCR
+React Native
+Node.js
+LLM

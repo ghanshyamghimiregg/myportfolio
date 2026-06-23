@@ -1,0 +1,1 @@
+Built a system that processes images of solved MCQ answer sheets, extracts answers using OCR, and displays results instantly in a clean UI. The solution also allows results to be downloaded in JSON format for reuse and analysis. What started as a simple idea became a valuable learning experience, and the final product worked exactly as the client envisioned.
