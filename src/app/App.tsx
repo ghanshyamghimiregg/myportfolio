@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
 import { AIAbout } from './components/ai/AIAbout'
@@ -75,6 +76,7 @@ export default function App() {
           </span>
         </div>
       </footer>
+      <SpeedInsights />
     </motion.div>
   )
 }
