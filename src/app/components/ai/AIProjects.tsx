@@ -159,8 +159,8 @@ export function AIProjects() {
   const others = LOCAL_PROJECTS.filter(p => p.id !== verifAI.id)
 
   return (
-    <section id="projects" style={{ backgroundColor: AI.subtle, padding: '120px 24px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section id="projects" className="section-pad section-pad-x" style={{ backgroundColor: AI.subtle, padding: '120px 24px' }}>
+      <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,9 +195,8 @@ export function AIProjects() {
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.3fr 1fr 1.7fr',
-            gap: '16px',
           }}
+          className="projects-bento"
         >
           {/* VerifAI — featured, spans 2 columns */}
           <div style={{ gridColumn: 'span 2' }}>

@@ -65,6 +65,7 @@ export function LaptopToggle({ onSwitch }: Props) {
       >
         <svg
           viewBox="0 0 120 100"
+          className="laptop-toggle-svg"
           width="132"
           height="110"
           fill="none"

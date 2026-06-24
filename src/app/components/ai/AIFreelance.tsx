@@ -36,6 +36,7 @@ function ReviewCard({ review, onClick }: { review: LocalReview; onClick: () => v
         cursor: 'pointer',
         userSelect: 'none',
       }}
+      className="review-card-width"
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', gap: '3px', alignItems: 'center' }}>
@@ -133,8 +134,8 @@ export function AIFreelance() {
   }
 
   return (
-    <section style={{ backgroundColor: AI.subtle, padding: '120px 0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+    <section className="section-pad" style={{ backgroundColor: AI.subtle, padding: '120px 0' }}>
+      <div className="section-inner-padded">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -174,10 +175,8 @@ export function AIFreelance() {
             borderRadius: '20px',
             padding: '32px',
             marginBottom: '32px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '32px',
           }}
+          className="freelance-card"
         >
           <div
             style={{
@@ -205,7 +204,7 @@ export function AIFreelance() {
             </div>
             <p style={{ fontSize: '0.9375rem', color: AI.muted, margin: 0 }}>AI Engineer & ML Developer · Upwork Freelancer</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, auto)', gap: '40px' }}>
+          <div className="freelance-stats">
             {STATS.map(s => (
               <div key={s.label} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '1.375rem', fontWeight: 700, color: AI.fg, letterSpacing: '-0.02em' }}>{s.value}</div>

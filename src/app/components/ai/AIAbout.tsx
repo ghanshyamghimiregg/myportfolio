@@ -5,9 +5,9 @@ const skills = ['Machine Learning', 'Computer Vision', 'OCR Systems', 'NLP', 'Py
 
 export function AIAbout() {
   return (
-    <section id="about" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
+      <div className="section-inner">
+        <div className="about-grid">
           {/* Left: Label + Heading */}
           <div>
             <motion.div

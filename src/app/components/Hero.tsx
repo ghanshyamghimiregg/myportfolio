@@ -5,8 +5,8 @@ import { LaptopToggle } from './LaptopToggle'
 import { FloatingPortrait } from './FloatingPortrait'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
-import aiPortrait from '../../assets/ggnewpic.png'
-import musicPortrait from '../../assets/1230_2.png'
+import aiPortrait from '../../assets/ggnewpic.webp'
+import musicPortrait from '../../assets/1230_2.webp'
 
 interface Props {
   mode: Mode
@@ -74,6 +74,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
 
   return (
     <section
+      className="hero-section"
       style={{
         minHeight: '100vh',
         display: 'flex',
@@ -83,7 +84,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', width: '100%' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '60px', alignItems: 'center' }}>
+        <div className="hero-grid">
           {/* Left: Text content */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
@@ -147,7 +148,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 : 'Sharing stories through music, one song at a time.'}
             </motion.p>
 
-            <motion.div custom={2} variants={fadeUp} initial="hidden" animate="show" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <motion.div custom={2} variants={fadeUp} initial="hidden" animate="show" className="hero-cta-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <MagneticButton href={isAI ? '#projects' : '#songs'} primary mode={mode}>
                 {isAI ? 'View Projects' : 'Listen to Music'}
                 <span style={{ opacity: 0.7 }}>↓</span>
@@ -162,6 +163,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
               variants={fadeUp}
               initial="hidden"
               animate="show"
+              className="hero-stats"
               style={{ display: 'flex', gap: '32px', paddingTop: '8px' }}
             >
               {isAI ? (
@@ -187,9 +189,8 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
             variants={fadeUp}
             initial="hidden"
             animate="show"
+            className="hero-toggle-col"
             style={{
-              display: 'flex',
-              justifyContent: 'center',
               position: 'relative',
               zIndex: 30,
               pointerEvents: 'auto',
@@ -208,9 +209,8 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
             variants={fadeUp}
             initial="hidden"
             animate="show"
+            className="hero-portrait-col"
             style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
               position: 'relative',
               zIndex: 1,
             }}

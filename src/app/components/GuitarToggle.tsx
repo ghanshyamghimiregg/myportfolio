@@ -107,6 +107,7 @@ export function GuitarToggle({ onSwitch }: Props) {
       >
         <svg
           viewBox="0 0 100 280"
+          className="guitar-toggle-svg"
           width="110"
           height="308"
           fill="none"

@@ -32,7 +32,7 @@ export function Navigation({ mode, onToggle }: Props) {
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="nav-inner">
         <motion.span
           animate={{ color: c.fg }}
           transition={{ duration: 0.6 }}
@@ -66,12 +66,13 @@ export function Navigation({ mode, onToggle }: Props) {
           </motion.button>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+        <div className="nav-links">
           <motion.a
             href="mailto:ghanshyamghimire@example.com"
             animate={{ color: c.muted }}
             whileHover={{ color: c.fg }}
             transition={{ duration: 0.2 }}
+            className="nav-link-contact"
             style={{ fontSize: '0.875rem', textDecoration: 'none', fontFamily: 'inherit' }}
           >
             Contact

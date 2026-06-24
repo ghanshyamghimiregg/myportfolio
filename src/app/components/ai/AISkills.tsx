@@ -53,14 +53,15 @@ export function AISkills() {
   const active = SKILL_CLUSTERS.find(c => c.category === activeCluster)
 
   return (
-    <section style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
+      <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          style={{ marginBottom: '56px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}
+          className="skills-header"
+          style={{ marginBottom: '56px' }}
         >
           <div>
             <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
@@ -86,7 +87,7 @@ export function AISkills() {
           </span>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+        <div className="skills-grid">
           {SKILL_CLUSTERS.map((cluster, i) => (
             <motion.div
               key={cluster.category}

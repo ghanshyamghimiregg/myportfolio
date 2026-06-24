@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { LoadingScreen } from './components/LoadingScreen'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
 import { AIAbout } from './components/ai/AIAbout'
@@ -16,6 +17,7 @@ import type { Mode } from './constants/colors'
 
 export default function App() {
   const [mode, setMode] = useState<Mode>('ai')
+  const [loading, setLoading] = useState(true)
 
   const handleToggle = () => setMode(m => m === 'ai' ? 'music' : 'ai')
 
@@ -30,11 +32,13 @@ export default function App() {
   }
 
   return (
-    <motion.div
-      animate={{ backgroundColor: mode === 'ai' ? '#F7F6F3' : '#FAF4E8' }}
-      transition={{ duration: 0.9, ease: [0.43, 0.13, 0.23, 0.96] }}
-      style={{ minHeight: '100vh', fontFamily: "'Inter', system-ui, sans-serif" }}
-    >
+    <>
+      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      <motion.div
+        animate={{ backgroundColor: mode === 'ai' ? '#F7F6F3' : '#FAF4E8' }}
+        transition={{ duration: 0.9, ease: [0.43, 0.13, 0.23, 0.96] }}
+        style={{ minHeight: '100vh', fontFamily: "'Inter', system-ui, sans-serif" }}
+      >
       <Navigation mode={mode} onToggle={handleToggle} />
       <Hero mode={mode} onSwitchToMusic={switchToMusic} onSwitchToAI={switchToAI} />
 
@@ -66,7 +70,7 @@ export default function App() {
       </AnimatePresence>
 
       <footer style={{ borderTop: `1px solid ${mode === 'ai' ? '#D8D7D4' : '#D9CFBA'}` }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="footer-inner">
           <span style={{ color: mode === 'ai' ? '#6B6B6B' : '#7C6652', fontSize: '0.875rem' }}>
             © 2026 Ghanshyam Ghimire
           </span>
@@ -75,6 +79,7 @@ export default function App() {
           </span>
         </div>
       </footer>
-    </motion.div>
+      </motion.div>
+    </>
   )
 }

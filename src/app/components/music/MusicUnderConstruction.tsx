@@ -4,6 +4,7 @@ import { MUSIC } from '../../constants/colors'
 export function MusicUnderConstruction() {
   return (
     <section
+      className="section-pad section-pad-x"
       style={{
         backgroundColor: MUSIC.subtle,
         padding: '120px 24px',

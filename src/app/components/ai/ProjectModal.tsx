@@ -37,23 +37,10 @@ export function ProjectModal({ project, onClose }: Props) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.97 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              position: 'fixed',
-              top: '5vh',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '90vw',
-              maxWidth: '800px',
-              maxHeight: '90vh',
-              overflowY: 'auto',
-              backgroundColor: '#fff',
-              borderRadius: '20px',
-              zIndex: 201,
-              boxShadow: '0 32px 64px rgba(0,0,0,0.12)',
-            }}
+            className="modal-container"
           >
             {/* Header */}
-            <div style={{ padding: '24px 36px 16px', borderBottom: `1px solid ${AI.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div className="modal-header" style={{ borderBottom: `1px solid ${AI.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <span style={{ fontSize: '0.75rem', color: AI.accent, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>
                   Project Demo & Info
@@ -82,7 +69,7 @@ export function ProjectModal({ project, onClose }: Props) {
             </div>
 
             {/* Content Container */}
-            <div style={{ padding: '36px' }}>
+            <div className="modal-body">
               {/* Media Demo */}
               {project.demo && (
                 <div style={{ marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', border: `1px solid ${AI.border}`, backgroundColor: '#000', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
