@@ -18,17 +18,40 @@ const SUBJECT_OVERFLOW = 0.12
 const AI_BG_RADIUS = 28
 const MUSIC_BG_RADIUS = 24
 
+const PORTRAIT_CONFIG = {
+  ai: {
+    justifyContent: 'center' as const,
+    bottomOffset: 0,
+    height: '100%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    aspectRatio: '2942 / 3328',
+  },
+  music: {
+    justifyContent: 'flex-start' as const,
+    bottomOffset: 8,
+    height: '170.5%',
+    left: '-14px',
+    transform: 'none',
+    aspectRatio: '2160 / 3840',
+  },
+}
+
 export function FloatingPortrait({ mode, src, alt }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [hovered, setHovered] = useState(false)
   const c = getColors(mode)
   const isAI = mode === 'ai'
+  const portraitConfig = isAI ? PORTRAIT_CONFIG.ai : PORTRAIT_CONFIG.music
+  const portraitBottom = BG_BOTTOM - portraitConfig.bottomOffset
   const r = isAI ? AI_BG_RADIUS : MUSIC_BG_RADIUS
   const subjectHeight = BG_HEIGHT * (1 + SUBJECT_OVERFLOW)
   const containerHeight = BG_BOTTOM + subjectHeight + 24
   const curveY = subjectHeight - r
-  const clipPathStr = `path('M -100 0 L ${BG_WIDTH + 100} 0 L ${BG_WIDTH + 100} ${subjectHeight} L ${r} ${subjectHeight} A ${r} ${r} 0 0 1 0 ${curveY} L -100 ${curveY} Z')`
+  const clipPathStr = isAI
+    ? `path('M -100 0 L ${BG_WIDTH + 100} 0 L ${BG_WIDTH + 100} ${subjectHeight} L ${r} ${subjectHeight} A ${r} ${r} 0 0 1 0 ${curveY} L -100 ${curveY} Z')`
+    : `path('M 0 0 L 92 0 L 92 -284 L ${BG_WIDTH + 100} -284 L ${BG_WIDTH + 100} ${subjectHeight} L ${r} ${subjectHeight} A ${r} ${r} 0 0 1 0 ${curveY} L 0 ${curveY} Z')`
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect()
@@ -71,7 +94,7 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
         transition={{ type: 'spring', stiffness: 140, damping: 20 }}
         style={{
           position: 'absolute',
-          bottom: BG_BOTTOM,
+          bottom: portraitBottom,
           left: BG_LEFT,
           width: BG_WIDTH,
           height: BG_HEIGHT,
@@ -106,7 +129,7 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
       <div
         style={{
           position: 'absolute',
-          bottom: BG_BOTTOM,
+          bottom: portraitBottom,
           left: BG_LEFT,
           width: BG_WIDTH,
           height: subjectHeight,
@@ -125,63 +148,35 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
             transformStyle: 'preserve-3d',
             display: 'flex',
             alignItems: 'flex-end',
-            justifyContent: isAI ? 'center' : 'flex-start',
+            justifyContent: portraitConfig.justifyContent,
           }}
         >
-          {isAI ? (
-            <div
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '0px',
+              left: 0,
+              right: 0,
+              height: '100%',
+              clipPath: clipPathStr,
+            }}
+          >
+            <img
+              src={src}
+              alt={alt}
               style={{
                 position: 'absolute',
-                bottom: '0px',
-                left: 0,
-                right: 0,
-                height: '100%',
-                clipPath: clipPathStr,
+                bottom: 0,
+                left: portraitConfig.left,
+                transform: portraitConfig.transform,
+                height: portraitConfig.height,
+                width: 'auto',
+                maxWidth: 'none',
+                aspectRatio: portraitConfig.aspectRatio,
+                display: 'block',
               }}
-            >
-              <img
-                src={src}
-                alt={alt}
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  height: '100%',
-                  width: 'auto',
-                  maxWidth: 'none',
-                  aspectRatio: '2942 / 3328',
-                  display: 'block',
-                }}
-              />
-            </div>
-          ) : (
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '0px',
-                left: 0,
-                right: 0,
-                height: '100%',
-                clipPath: clipPathStr,
-              }}
-            >
-              <img
-                src={src}
-                alt={alt}
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  height: '155%',
-                  width: 'auto',
-                  maxWidth: 'none',
-                  aspectRatio: '2160 / 3840',
-                  display: 'block',
-                }}
-              />
-            </div>
-          )}
+            />
+          </div>
         </motion.div>
       </div>
     </div>

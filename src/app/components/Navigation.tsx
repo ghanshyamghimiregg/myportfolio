@@ -20,7 +20,10 @@ export function Navigation({ mode, onToggle }: Props) {
 
   return (
     <motion.nav
-      animate={{ backgroundColor: scrolled ? c.bg : 'transparent', borderColor: scrolled ? c.border : 'transparent' }}
+      animate={{
+        backgroundColor: c.bg,
+        borderColor: scrolled ? c.border : 'transparent',
+      }}
       transition={{ duration: 0.3 }}
       style={{
         position: 'fixed',
@@ -29,7 +32,7 @@ export function Navigation({ mode, onToggle }: Props) {
         right: 0,
         zIndex: 100,
         borderBottom: `1px solid ${scrolled ? c.border : 'transparent'}`,
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        boxShadow: scrolled ? '0 1px 8px rgba(0,0,0,0.06)' : 'none',
       }}
     >
       <div className="nav-inner">

@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
+import { LinkedinIcon, InstagramIcon, FacebookIcon, type LucideIcon } from 'lucide-react'
 import { GuitarToggle } from './GuitarToggle'
 import { LaptopToggle } from './LaptopToggle'
 import { FloatingPortrait } from './FloatingPortrait'
@@ -15,6 +16,60 @@ interface Props {
 }
 
 interface MagneticPos { x: number; y: number }
+
+const AI_SOCIALS = [
+  { name: 'Instagram', color: '#E1306C', href: 'https://www.instagram.com/ghanshyamghimiremusic/', icon: InstagramIcon },
+  { name: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/ghanshyamghimiregg', icon: FacebookIcon },
+  { name: 'LinkedIn', color: '#0A66C2', href: 'https://www.linkedin.com/in/ghanshyam-ghimire-441854213/', icon: LinkedinIcon },
+]
+
+function SocialIconButton({
+  social,
+  borderColor,
+  backgroundColor,
+}: {
+  social: { name: string; color: string; href: string; icon: LucideIcon }
+  borderColor: string
+  backgroundColor: string
+}) {
+  const Icon = social.icon
+
+  return (
+    <motion.a
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={social.name}
+      title={social.name}
+      whileHover={{ scale: 1.08, y: -2 }}
+      whileTap={{ scale: 0.96 }}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '42px',
+        height: '42px',
+        borderRadius: '999px',
+        border: `1.5px solid ${borderColor}`,
+        backgroundColor,
+        color: social.color,
+        textDecoration: 'none',
+        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+        boxShadow: '0 10px 24px rgba(15, 23, 42, 0.06)',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = social.color
+        e.currentTarget.style.boxShadow = `0 12px 28px ${social.color}22`
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.borderColor = borderColor
+        e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.06)'
+      }}
+    >
+      <Icon size={18} strokeWidth={1.9} />
+    </motion.a>
+  )
+}
 
 function MagneticButton({ children, href, primary, mode }: { children: React.ReactNode; href: string; primary?: boolean; mode: Mode }) {
   const [pos, setPos] = useState<MagneticPos>({ x: 0, y: 0 })
@@ -164,13 +219,11 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
               initial="hidden"
               animate="show"
               className="hero-stats"
-              style={{ display: 'flex', gap: '32px', paddingTop: '8px' }}
+              style={{ display: 'flex', gap: '28px', paddingTop: '4px', flexWrap: 'wrap' }}
             >
               {isAI ? (
                 <>
-                  <Stat value="" label="" color={c} />
                   <Stat value="5+" label="AI Projects" color={c} />
-                  <Stat value="" label="" color={c} />
                   <Stat value="BTech AI" label="Kathmandu University" color={c} />
                 </>
               ) : (
@@ -181,6 +234,26 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 </>
               )}
             </motion.div>
+
+            {/* Social links — below stats, AI mode only */}
+            {isAI && (
+              <motion.div
+                custom={4}
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+                style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', paddingTop: '2px' }}
+              >
+                {AI_SOCIALS.map(s => (
+                  <SocialIconButton
+                    key={s.name}
+                    social={s}
+                    borderColor={c.border}
+                    backgroundColor={c.card}
+                  />
+                ))}
+              </motion.div>
+            )}
           </div>
 
           {/* Center: Mode toggle */}
@@ -203,7 +276,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
             )}
           </motion.div>
 
-          {/* Right: Portrait */}
+          {/* Right: Portrait — AnimatePresence for smooth crossfade */}
           <motion.div
             custom={2}
             variants={fadeUp}
@@ -215,11 +288,23 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
               zIndex: 1,
             }}
           >
-            <FloatingPortrait
-              mode={mode}
-              src={isAI ? aiPortrait : musicPortrait}
-              alt="Ghanshyam Ghimire"
-            />
+            <AnimatePresence initial={false} mode="wait">
+              <motion.div
+                key={mode}
+                layout
+                initial={{ opacity: 0, scale: 0.985 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.985 }}
+                transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+                style={{ transformOrigin: 'left bottom' }}
+              >
+                <FloatingPortrait
+                  mode={mode}
+                  src={isAI ? aiPortrait : musicPortrait}
+                  alt="Ghanshyam Ghimire"
+                />
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
         </div>
 

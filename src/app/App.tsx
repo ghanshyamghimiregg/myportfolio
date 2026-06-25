@@ -10,9 +10,8 @@ import { AIFreelance } from './components/ai/AIFreelance'
 import { MusicStatement } from './components/music/MusicStatement'
 import { MusicSongs } from './components/music/MusicSongs'
 import { MusicBehindSongs } from './components/music/MusicBehindSongs'
-import { MusicJourney } from './components/music/MusicJourney'
+
 import { MusicGallery } from './components/music/MusicGallery'
-import { MusicUnderConstruction } from './components/music/MusicUnderConstruction'
 import type { Mode } from './constants/colors'
 
 export default function App() {
@@ -64,7 +63,11 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
-            <MusicUnderConstruction />
+            <MusicStatement />
+            <MusicSongs />
+            <MusicBehindSongs />
+
+            <MusicGallery />
           </motion.div>
         )}
       </AnimatePresence>

@@ -2,98 +2,81 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 import { MUSIC } from '../../constants/colors'
 
+/* 
+ * Photos grouped by orientation for better layout:
+ * - landscape: wider than tall
+ * - portrait: taller than wide  
+ * - square: roughly equal
+ */
 const PHOTOS = [
-  {
-    id: 'g1',
-    src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
-    alt: 'Live acoustic performance',
-    caption: 'Open mic night · Kathmandu',
-    span: 'large' as const,
-  },
-  {
-    id: 'g2',
-    src: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-    alt: 'Acoustic guitar close-up',
-    caption: 'Writing session at home',
-    span: 'small' as const,
-  },
-  {
-    id: 'g3',
-    src: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-    alt: 'Studio recording session',
-    caption: 'Recording "Mero Ghar"',
-    span: 'small' as const,
-  },
-  {
-    id: 'g4',
-    src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
-    alt: 'Concert stage performance',
-    caption: 'University cultural program',
-    span: 'medium' as const,
-  },
-  {
-    id: 'g5',
-    src: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-    alt: 'Concert crowd atmosphere',
-    caption: 'First official release night',
-    span: 'medium' as const,
-  },
-  {
-    id: 'g6',
-    src: 'https://images.unsplash.com/photo-1514320291840-755e4150e6c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-    alt: 'Collaboration with fellow musicians',
-    caption: 'Jam session with friends',
-    span: 'small' as const,
-  },
+  // Row 1: landscape, portrait, portrait, square
+  { id: 'g1', src: '/musicphotos/0524.jpg', alt: 'Live performance' },
+  { id: 'g2', src: '/musicphotos/0625 (1)(1).jpg', alt: 'Performance moment' },
+  { id: 'g3', src: '/musicphotos/621380075_18079924583211383_6665212664267307199_n.jpg', alt: 'Music moment' },
+  { id: 'g4', src: '/musicphotos/633865744_18378865819080876_5430391603270443274_n.jpg', alt: 'Live music' },
+  // Row 2
+  { id: 'g5', src: '/musicphotos/0625 (1)(2).jpg', alt: 'Stage performance' },
+  { id: 'g6', src: '/musicphotos/0613.jpg', alt: 'On stage' },
+  { id: 'g7', src: '/musicphotos/0625 (1).jpg', alt: 'Acoustic session' },
+  { id: 'g8', src: '/musicphotos/648994522_18069324248268344_7263154056669889858_n.jpg', alt: 'Concert' },
+  // Row 3
+  { id: 'g9', src: '/musicphotos/650917621_18093282259860295_8909871446461575516_n.jpg', alt: 'Performance' },
+  { id: 'g10', src: '/musicphotos/724072731_1360426932738710_3054117027992186017_n.jpg', alt: 'Stage moment' },
+  { id: 'g11', src: '/musicphotos/625038055_18170918398391095_6324780337854495417_n (1).jpg', alt: 'Music session' },
+  { id: 'g12', src: '/musicphotos/SCR-20260625-eolv.jpeg', alt: 'Behind the scenes' },
 ]
 
-function GalleryItem({ photo }: { photo: typeof PHOTOS[0] }) {
+function CollagePhoto({ photo, index, rotation }: { photo: typeof PHOTOS[0]; index: number; rotation: number }) {
   const [hovered, setHovered] = useState(false)
 
   return (
     <motion.div
+      initial={{ opacity: 0, scale: 0.9, rotate: rotation * 1.5 }}
+      whileInView={{ opacity: 1, scale: 1, rotate: rotation }}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      style={{
-        position: 'relative',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        border: `1px solid ${MUSIC.border}`,
-        cursor: 'pointer',
-        gridColumn: photo.span === 'large' ? 'span 2' : undefined,
-        gridRow: photo.span === 'large' ? 'span 2' : undefined,
-      }}
+      style={{ cursor: 'pointer' }}
     >
-      <motion.img
-        src={photo.src}
-        alt={photo.alt}
-        animate={{ scale: hovered ? 1.06 : 1 }}
-        transition={{ duration: 0.5 }}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: photo.span === 'large' ? '360px' : '180px' }}
-      />
       <motion.div
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        animate={{
+          scale: hovered ? 1.05 : 1,
+          rotate: hovered ? 0 : 0,
+          boxShadow: hovered
+            ? '0 20px 50px rgba(44, 22, 16, 0.25)'
+            : '0 4px 16px rgba(44, 22, 16, 0.1)',
+          zIndex: hovered ? 20 : 1,
+        }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to top, rgba(44,22,16,0.75) 0%, transparent 60%)',
-          display: 'flex',
-          alignItems: 'flex-end',
-          padding: '16px',
+          backgroundColor: '#fff',
+          padding: '6px 6px 24px 6px',
+          borderRadius: '4px',
+          position: 'relative',
         }}
       >
-        <span style={{ color: '#FFF8EE', fontSize: '0.875rem', fontWeight: 500 }}>
-          {photo.caption}
-        </span>
+        <div style={{ borderRadius: '2px', overflow: 'hidden' }}>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+            }}
+          />
+        </div>
       </motion.div>
     </motion.div>
   )
 }
 
 export function MusicGallery() {
+  // Pre-assigned rotations for visual variety
+  const rotations = [-3, 2, -2, 4, 3, -4, 2, -3, -2, 3, -4, 2]
+
   return (
     <section id="gallery" style={{ backgroundColor: MUSIC.subtle, padding: '120px 24px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -104,44 +87,41 @@ export function MusicGallery() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '56px', textAlign: 'center' }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: MUSIC.accent, fontWeight: 500 }}>
-            Gallery
-          </span>
           <h2
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
               fontWeight: 500,
               color: MUSIC.fg,
-              marginTop: '12px',
-              marginBottom: '0',
+              marginTop: '0',
+              marginBottom: '12px',
               letterSpacing: '-0.02em',
               lineHeight: 1.2,
             }}
           >
-            Moments from<br />
-            <em style={{ fontStyle: 'italic', fontWeight: 400 }}>stage and studio.</em>
+            On Stage<br />
+            <em style={{ fontStyle: 'italic', fontWeight: 400 }}>since 2015.</em>
           </h2>
         </motion.div>
 
+        {/* Masonry-like collage with CSS columns */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '16px',
-            gridAutoRows: 'minmax(180px, auto)',
+            columnCount: 4,
+            columnGap: '12px',
           }}
         >
           {PHOTOS.map((photo, i) => (
-            <motion.div
+            <div
               key={photo.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              style={{
+                breakInside: 'avoid',
+                marginBottom: '12px',
+                transform: `rotate(${rotations[i]}deg)`,
+              }}
             >
-              <GalleryItem photo={photo} />
-            </motion.div>
+              <CollagePhoto photo={photo} index={i} rotation={rotations[i]} />
+            </div>
           ))}
         </div>
       </div>
