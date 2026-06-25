@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { Analytics } from '@vercel/analytics/react'
 import { LoadingScreen } from './components/LoadingScreen'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
@@ -83,6 +84,7 @@ export default function App() {
         </div>
       </footer>
       </motion.div>
+      <Analytics />
     </>
   )
 }
