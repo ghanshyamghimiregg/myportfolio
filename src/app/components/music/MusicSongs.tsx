@@ -20,7 +20,7 @@ const SONGS = [
   },
   {
     id: 'sapana-ko-udaan',
-    title: 'Flight of Dreams',
+    title: 'Sapana Ko Udaan',
     year: '2025',
     cover: '/songs/sapana-ko-udaan/cover.jpg',
     preview: '/songs/sapana-ko-udaan/preview.wav',
@@ -48,7 +48,7 @@ const SONGS = [
   },
   {
     id: 'aabhaas',
-    title: 'Realization of Love',
+    title: 'Aabhaas',
     year: '2026',
     cover: '/songs/aabhaas/cover.png',
     preview: '/songs/aabhaas/preview.wav',
