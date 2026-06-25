@@ -52,36 +52,34 @@ export const LOCAL_PROJECTS: LocalProject[] = [
     ]
   },
   {
-    "id": "nepali-sign-language-translation-character-level",
-    "title": "Nepali Sign Language Translation ( Character Level )",
+    "id": "nepali-sign-language-translation",
+    "title": "Nepali Sign Language Translation",
     "info": "NSLT (Nepali Sign Language Translator) is a deep learning project focused on character-level classification of Nepali Sign Language. Using computer vision techniques, we trained a model to recognize individual hand signs corresponding to Nepali alphabets. The system uses a webcam to capture gesture images and classifies them in real time using a convolutional neural network. This project aims to assist communication for the hearing-impaired by enabling accurate recognition of sign characters.",
     "skills": [
+      "Data Annotation",
+      "AI Model Training",
       "Computer Vision",
-      "Deep Learning",
-      "TensorFlow",
-      "OpenCV",
-      "Python",
-      "Dataset Creation"
+      "Python"
     ],
     "demo": {
       "type": "image",
-      "src": "/projects/Nepali Sign Language Translation ( Character Level )/NSLT_image1.png"
+      "src": "/projects/Nepali Sign Language Translation/NSLT_image1.png"
     },
-    "thumbnail": "/projects/Nepali Sign Language Translation ( Character Level )/thumbnail.png",
+    "thumbnail": "/projects/Nepali Sign Language Translation/thumbnail.png",
     "media": [
       {
         "name": "NSLT_image1.png",
-        "src": "/projects/Nepali Sign Language Translation ( Character Level )/NSLT_image1.png",
+        "src": "/projects/Nepali Sign Language Translation/NSLT_image1.png",
         "type": "image"
       },
       {
         "name": "NSLT_image2.png",
-        "src": "/projects/Nepali Sign Language Translation ( Character Level )/NSLT_image2.png",
+        "src": "/projects/Nepali Sign Language Translation/NSLT_image2.png",
         "type": "image"
       },
       {
         "name": "thumbnail.png",
-        "src": "/projects/Nepali Sign Language Translation ( Character Level )/thumbnail.png",
+        "src": "/projects/Nepali Sign Language Translation/thumbnail.png",
         "type": "image"
       }
     ]
@@ -133,7 +131,7 @@ export const LOCAL_PROJECTS: LocalProject[] = [
   },
   {
     "id": "verifai-kyc-verification-using-ai",
-    "title": "VerifAI [ KYC Verification Using AI ]",
+    "title": "VerifAI - KYC Verification Using AI",
     "info": "VerifAI is an AI-powered identity verification platform that automates the KYC (Know Your Customer) process, enabling organizations to onboard users quickly, securely, and accurately. The system combines OCR, facial recognition, and liveness detection to verify identities in real time while minimizing manual intervention. By digitizing document verification and fraud detection, VerifAI improves operational efficiency and enhances user trust.\n\nKey Features:\n• Extracts information from identity documents using OCR and stores it in a structured format.\n• Captures user location data and live video footage during the verification process.\n• Compares document photos, passport-size photos, and live video using facial recognition.\n• Uses liveness detection to prevent spoofing attacks with photos or prerecorded videos.\n• Auto-fills verification forms and allows users to review or update their information.\n• Instantly verifies genuine users and flags mismatched or suspicious submissions.\n• Reduces onboarding time, manual effort, operational costs, and human error.\n• Suitable for fintech, banking, insurance, and other digital platforms requiring secure KYC compliance.\n• Focuses on privacy, security, speed, and a seamless user experience.",
     "skills": [
       "OCR",
@@ -146,18 +144,18 @@ export const LOCAL_PROJECTS: LocalProject[] = [
     ],
     "demo": {
       "type": "video",
-      "src": "/projects/VerifAI [ KYC Verification Using AI ]/VerifAI_video.mov"
+      "src": "/projects/VerifAI - KYC Verification Using AI/VerifAI_video.mov"
     },
-    "thumbnail": "/projects/VerifAI [ KYC Verification Using AI ]/VerifAI_logo.png",
+    "thumbnail": "/projects/VerifAI - KYC Verification Using AI/VerifAI_logo.png",
     "media": [
       {
         "name": "VerifAI_logo.png",
-        "src": "/projects/VerifAI [ KYC Verification Using AI ]/VerifAI_logo.png",
+        "src": "/projects/VerifAI - KYC Verification Using AI/VerifAI_logo.png",
         "type": "image"
       },
       {
         "name": "VerifAI_video.mov",
-        "src": "/projects/VerifAI [ KYC Verification Using AI ]/VerifAI_video.mov",
+        "src": "/projects/VerifAI - KYC Verification Using AI/VerifAI_video.mov",
         "type": "video"
       }
     ]

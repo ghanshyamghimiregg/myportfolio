@@ -1,0 +1,12 @@
+VerifAI is an AI-powered identity verification platform that automates the KYC (Know Your Customer) process, enabling organizations to onboard users quickly, securely, and accurately. The system combines OCR, facial recognition, and liveness detection to verify identities in real time while minimizing manual intervention. By digitizing document verification and fraud detection, VerifAI improves operational efficiency and enhances user trust.
+
+Key Features:
+• Extracts information from identity documents using OCR and stores it in a structured format.
+• Captures user location data and live video footage during the verification process.
+• Compares document photos, passport-size photos, and live video using facial recognition.
+• Uses liveness detection to prevent spoofing attacks with photos or prerecorded videos.
+• Auto-fills verification forms and allows users to review or update their information.
+• Instantly verifies genuine users and flags mismatched or suspicious submissions.
+• Reduces onboarding time, manual effort, operational costs, and human error.
+• Suitable for fintech, banking, insurance, and other digital platforms requiring secure KYC compliance.
+• Focuses on privacy, security, speed, and a seamless user experience.

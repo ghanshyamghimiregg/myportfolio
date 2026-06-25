@@ -7,7 +7,7 @@ import { FloatingPortrait } from './FloatingPortrait'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
 import aiPortrait from '../../assets/ggnewpic.webp'
-import musicPortrait from '../../assets/1230_2.webp'
+import musicPortrait from '../../assets/ggpotraight.png'
 
 interface Props {
   mode: Mode

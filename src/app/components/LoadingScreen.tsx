@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import aiPortrait from '../../assets/ggnewpic.webp'
-import musicPortrait from '../../assets/1230_2.webp'
+import musicPortrait from '../../assets/ggpotraight.png'
 
 interface Props {
   onComplete: () => void

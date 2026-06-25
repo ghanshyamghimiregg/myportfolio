@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
+import { Brain, Music } from 'lucide-react'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
 
@@ -45,28 +46,91 @@ export function Navigation({ mode, onToggle }: Props) {
         </motion.span>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <motion.button
+          <button
             onClick={onToggle}
-            animate={{ backgroundColor: mode === 'ai' ? c.accent : c.accentLight, color: mode === 'ai' ? '#fff' : c.accent }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ duration: 0.4 }}
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '6px 14px',
+              position: 'relative',
+              width: '92px',
+              height: '44px',
               borderRadius: '100px',
-              border: 'none',
+              border: `1px solid ${c.border}`,
+              backgroundColor: c.card,
               cursor: 'pointer',
+              padding: 0,
               fontSize: '0.8125rem',
               fontWeight: 500,
               fontFamily: 'inherit',
+              overflow: 'hidden',
             }}
           >
-            <span style={{ fontSize: '0.75rem' }}>{mode === 'ai' ? '⚙' : '♪'}</span>
-            {mode === 'ai' ? 'AI Engineer' : 'Musician'}
-          </motion.button>
+            {/* Divider */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '8px',
+                bottom: '8px',
+                width: '1px',
+                backgroundColor: c.border,
+                transform: 'translateX(-50%)',
+                zIndex: 1,
+              }}
+            />
+
+            {/* Active circle */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                width: '38px',
+                height: '38px',
+                borderRadius: '100px',
+                backgroundColor: c.accent,
+                top: '3px',
+              }}
+              animate={{
+                left: mode === 'ai' ? '3px' : '51px',
+              }}
+              transition={{ duration: 0.3, type: 'spring', stiffness: 500, damping: 30 }}
+            />
+
+            {/* AI icon */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '3px',
+                top: '3px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '100px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: mode === 'ai' ? '#fff' : c.muted,
+                zIndex: 2,
+              }}
+            >
+              <Brain size={18} strokeWidth={2.5} />
+            </div>
+
+            {/* Music icon */}
+            <div
+              style={{
+                position: 'absolute',
+                right: '3px',
+                top: '3px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '100px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: mode === 'music' ? '#fff' : c.muted,
+                zIndex: 2,
+              }}
+            >
+              <Music size={18} strokeWidth={2.5} />
+            </div>
+          </button>
         </div>
 
         <div className="nav-links">

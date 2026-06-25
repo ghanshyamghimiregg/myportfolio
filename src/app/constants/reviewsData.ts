@@ -15,14 +15,14 @@ export interface LocalReview {
 
 export const LOCAL_REVIEWS: LocalReview[] = [
   {
-    "client": "Ghumne Kitab",
-    "project": "Video Editing",
+    "client": "Sarita Shreesh",
+    "project": "Editing interview video and making thumbnails.",
     "location": "Nepal",
-    "date": "June 2025",
+    "date": "2025-2026",
     "rating": 5,
-    "text": "Ghanshyam is an exceptionally skilled video editor and content creator. He helped us edit and polish our travel vlogs for Ghumne Kitab, delivering high-quality visual cuts and audio synchronization. Highly recommended!",
+    "text": "Ghanshyam is a skilled video editor and a creative gut. At Ghumne Kitab, he worked on editing interviews and book reviews, and also created thumbnails for us. He is quick at edits, and good at tight deadlines. He is reliable and easy to work with. Best wishes to him for his career.",
     "category": "External Freelance",
-    "avatar": "GK",
+    "avatar": "SS",
     "id": 1
   },
   {
@@ -35,5 +35,16 @@ export const LOCAL_REVIEWS: LocalReview[] = [
     "category": "Upwork",
     "avatar": "CD",
     "id": 2
+  },
+  {
+    "client": "Janet Haastrup",
+    "project": "Datta Collection Project",
+    "location": "Los Angeles, USA",
+    "date": "2026",
+    "rating": 5,
+    "text": "Ghanshyam did an excellent job on this project. He was reliable, detail-oriented, and completed the data collection and curation tasks efficiently within the deadline. Communication was smooth throughout, and the quality of work met expectations. Would be happy to collaborate again.",
+    "category": "Upwork",
+    "avatar": "JH",
+    "id": 3
   }
 ];

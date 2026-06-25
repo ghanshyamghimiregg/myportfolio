@@ -6,9 +6,9 @@ import { ReviewModal } from './ReviewModal'
 
 const STATS = [
   { label: 'Job Success', value: '100%', icon: '✓' },
-  { label: 'Projects Completed', value: '1+', icon: '◉' },
-  { label: 'Client Satisfaction', value: '4.5 ★', icon: '★' },
-  { label: 'Total Earnings', value: '$100+', icon: '↑' },
+  { label: 'Projects Completed', value: '2', icon: '◉' },
+  { label: 'Client Satisfaction', value: '4.75 ★', icon: '★' },
+  { label: 'Total Earnings', value: '$110+', icon: '↑' },
 ]
 
 import { LOCAL_REVIEWS } from '../../constants/reviewsData'

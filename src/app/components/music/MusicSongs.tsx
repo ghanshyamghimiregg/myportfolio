@@ -10,7 +10,7 @@ const SONGS = [
     year: '2024',
     cover: '/songs/gantabya/cover.png',
     preview: '/songs/gantabya/preview.wav',
-    description: '"Gantabya" my debut original song, is a love story unlike any other. It\'s not just about the initial spark, but about finding a partner to conquer life\'s challenges with. Someone to grow beside, hand-in-hand, as you reach for your dreams — your destination, your "Gantabya."',
+    description: '"Gantabya" is a love story unlike any other. It\'s not just about the initial spark, but about finding a partner to conquer life\'s challenges with. Someone to grow beside, hand-in-hand, as you reach for your dreams. The word "Gantabya" means destination in Nepali, and this song captures that feeling of knowing your journey matters more when someone walks it with you. As my very first release, Gantabya holds a special place. It was the song that proved to me I could translate the feelings inside my heart into melodies that others could feel too.',
     streaming: {
       spotify: 'https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS',
       youtube: 'https://youtu.be/yd7lsKnmB-Q',
@@ -20,11 +20,11 @@ const SONGS = [
   },
   {
     id: 'sapana-ko-udaan',
-    title: 'Sapana Ko Udaan',
+    title: 'Flight of Dreams',
     year: '2025',
     cover: '/songs/sapana-ko-udaan/cover.jpg',
     preview: '/songs/sapana-ko-udaan/preview.wav',
-    description: '"Sapana Ko Udaan" is more than just a song — it is the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad. This heartfelt composition reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay.',
+    description: '"Sapana Ko Udaan" is more than just a song—it is the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad. This heartfelt composition reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay. With deep storytelling, soothing melodies, and a fusion of Nepali folk and indie acoustic sounds, this song celebrates home, resilience, and hope. I hope it resonates with you and inspires you to embrace your dreams, no matter where you are.',
     streaming: {
       spotify: 'https://open.spotify.com/track/2JZnTfQlMtOJHAdY4PccsL',
       youtube: 'https://youtu.be/sUzGfuGjWQw',
@@ -38,7 +38,7 @@ const SONGS = [
     year: '2025',
     cover: '/songs/nabhaniyeka-sapana/cover.jpg',
     preview: '/songs/nabhaniyeka-sapana/preview.wav',
-    description: '"Nabhaniyeka Sapana" is a song born from the quiet corners of the heart — where words often remain unspoken but dreams live on. It\'s about those silent emotions we carry, the feelings we never manage to say out loud, yet they shape our lives in the deepest ways.',
+    description: '"Nabhaniyeka Sapana" is a song born from the quiet corners of the heart — where words often remain unspoken but dreams live on. It’s about those silent emotions we carry, the feelings we never manage to say out loud, yet they shape our lives in the deepest ways. Its a story about how a dad fulfills his child\'s unspoken dreams, silently.',
     streaming: {
       spotify: 'https://open.spotify.com/track/0Xk6qjuLqJxymXosbJZVh0',
       youtube: 'https://youtu.be/_cucMicv2jg',
@@ -48,11 +48,11 @@ const SONGS = [
   },
   {
     id: 'aabhaas',
-    title: 'Aabhaas',
+    title: 'Realization of Love',
     year: '2026',
     cover: '/songs/aabhaas/cover.png',
     preview: '/songs/aabhaas/preview.wav',
-    description: '"Aabhaas" tells the story of when you return from a date and find yourself lost in their thoughts. It\'s about the realization (आभास) that maybe you are in love. You pen your thoughts, turn those into a melody where every note carries a piece of that moment. In simple words, Aabhaas is a sweet realization of love.',
+    description: 'Aabhaas is a song that talks about unexpressed love. Its a musical love story about the realization of falling for someone. It tells the story of when you return from a date and find yourself lost in their thoughts. It’s about the realization ( आभास ) that maybe you are in love. You pen your thoughts, turn those into a melody where every note carries a piece of that moment. In simple words Aabhaas is a sweet realization of love.',
     streaming: {
       spotify: 'https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT',
       youtube: 'https://youtu.be/_Vc8b-n6-Xw',

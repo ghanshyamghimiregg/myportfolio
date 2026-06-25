@@ -1,0 +1,7 @@
+OCR
+Computer Vision
+Python
+React Native
+Django
+TenserFlow
+Machine Learning

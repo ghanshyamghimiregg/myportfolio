@@ -7,30 +7,28 @@ const STORIES = [
   {
     number: '01',
     song: 'Gantabya',
-    chapter: 'The Journey Together',
+    chapter: 'The Destination',
     year: '2024',
     image: '/songs/gantabya/cover.png',
     text: [
-      '"Gantabya" — my debut original — is a love story unlike any other. It\'s not just about the initial spark, but about finding a partner to conquer life\'s challenges with.',
+      '"Gantabya" is a love story unlike any other. It\'s not just about the initial spark, but about finding a partner to conquer life\'s challenges with.',
       'Someone to grow beside, hand-in-hand, as you reach for your dreams. The word "Gantabya" means destination in Nepali, and this song captures that feeling of knowing your journey matters more when someone walks it with you.',
       'As my very first release, Gantabya holds a special place. It was the song that proved to me I could translate the feelings inside my heart into melodies that others could feel too.',
     ],
     emotion: 'Love and companionship',
-    writtenIn: 'Debut Release',
   },
   {
     number: '02',
     song: 'Sapana Ko Udaan',
-    chapter: 'Dreams Taking Flight',
+    chapter: 'The Flight of Dreams',
     year: '2025',
     image: '/songs/sapana-ko-udaan/cover.jpg',
     text: [
-      '"Sapana Ko Udaan" is more than just a song — it is the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad.',
-      'This heartfelt composition reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay. The title translates to "Flight of Dreams."',
-      'Writing this song, I wanted to capture the weight of that moment — when you\'re at the airport, looking back one last time. The melody carries both the excitement of the unknown and the ache of what you\'re leaving behind.',
+      '"Sapana Ko Udaan" is more than just a song—it is the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad. This heartfelt composition reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay.',
+      'I hope it resonates with you and inspires you to embrace your dreams, no matter where you are.',
+      'Writing this song, I wanted to capture the weight of everyone around you leaves for abroad and you\'re here alone trying to stay here. After certain time, you too question yourself if it was the right decision of yours to stay.',
     ],
-    emotion: 'Longing and hope',
-    writtenIn: 'Second release',
+    emotion: 'Alone, Unsure',
   },
   {
     number: '03',
@@ -39,26 +37,24 @@ const STORIES = [
     year: '2025',
     image: '/songs/nabhaniyeka-sapana/cover.jpg',
     text: [
-      '"Nabhaniyeka Sapana" is a song born from the quiet corners of the heart — where words often remain unspoken but dreams live on.',
-      'It\'s about those silent emotions we carry, the feelings we never manage to say out loud, yet they shape our lives in the deepest ways. The title means "Dreams Left Unsaid."',
-      'This was perhaps the most emotionally vulnerable song I\'ve written. Some feelings are too delicate for words — and that\'s exactly what this song tries to capture through its melody.',
+      '"Nabhaniyeka Sapana" is a song born from the quiet corners of the heart — where words often remain unspoken but dreams live on. It’s about those silent emotions we carry, the feelings we never manage to say out loud, yet they shape our lives in the deepest ways.',
+      'Its a story about how a dad fulfills his child\'s unspoken dreams, silently. In that silence, love finds its purest form. Not in words, but in quiet sacrifices and unspoken understanding.',
+      '"Nabhaniyeka Sapana" is a journey into that unvoiced world, where silence holds its own poetry.',
     ],
-    emotion: 'Silent vulnerability',
-    writtenIn: 'Third release',
+    emotion: 'Between Silences',
   },
   {
     number: '04',
     song: 'Aabhaas',
-    chapter: 'A Sweet Realization',
+    chapter: 'Realization of Love',
     year: '2026',
     image: '/songs/aabhaas/cover.png',
     text: [
-      '"Aabhaas" tells the story of when you return from a date and find yourself lost in their thoughts. It\'s about the realization (आभास) that maybe you are in love.',
-      'You pen your thoughts, turn those into a melody where every note carries a piece of that moment. In simple words, Aabhaas is a sweet realization of love.',
-      'As my latest release, this song represents where I am now as an artist — more confident in expressing the tender, intimate moments that define our emotional lives.',
+      'Aabhaas is a song that talks about unexpressed love. Its a musical love story about the realization of falling for someone.',
+      'It tells the story of when you return from a date and find yourself lost in their thoughts. It’s about the realization ( आभास ) that maybe you are in love. You pen your thoughts, turn those into a melody where every note carries a piece of that moment. Aabhaas is a sweet realization of love which is soft, introspective, and deeply personal.',
+      'This song is a tribute to everyone who has ever felt something they couldn’t quite put into words, yet knew deep down where their heart was heading.',
     ],
     emotion: 'Sweet realization of love',
-    writtenIn: 'Latest release',
     isLatest: true,
   },
 ]
@@ -314,10 +310,6 @@ export function MusicBehindSongs() {
                   <div>
                     <span style={{ fontSize: '0.6875rem', color: MUSIC.muted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Emotion</span>
                     <p style={{ fontSize: '0.9375rem', color: MUSIC.accent, fontWeight: 600, margin: '4px 0 0' }}>{story.emotion}</p>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.6875rem', color: MUSIC.muted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Release</span>
-                    <p style={{ fontSize: '0.9375rem', color: MUSIC.fg, fontWeight: 600, margin: '4px 0 0' }}>{story.writtenIn}</p>
                   </div>
                 </div>
               </div>

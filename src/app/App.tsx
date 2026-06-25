@@ -5,6 +5,7 @@ import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
 import { AIAbout } from './components/ai/AIAbout'
 import { AIProjects } from './components/ai/AIProjects'
+import { AIHackathons } from './components/ai/AIHackathons'
 import { AISkills } from './components/ai/AISkills'
 import { AIFreelance } from './components/ai/AIFreelance'
 import { MusicStatement } from './components/music/MusicStatement'
@@ -52,6 +53,7 @@ export default function App() {
           >
             <AIAbout />
             <AIProjects />
+            <AIHackathons />
             <AISkills />
             <AIFreelance />
           </motion.div>

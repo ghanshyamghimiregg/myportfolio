@@ -26,6 +26,7 @@ function parseReviewFile(filePath, category) {
     'location': 'location',
     "client's location": 'location',
     'date': 'date',
+    'year': 'date',
     'rating': 'rating',
     'text': 'text',
     'review': 'text'
@@ -34,7 +35,7 @@ function parseReviewFile(filePath, category) {
   let currentKey = '';
 
   for (const line of lines) {
-    const match = line.match(/^([^:]+):\s*(.*)$/);
+    const match = line.match(/^([^:]+)\s*:\s*(.*)$/);
     
     if (match) {
       const parsedKey = match[1].trim().toLowerCase();

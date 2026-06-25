@@ -80,6 +80,84 @@
   gap: 16px;
 }
 
+/* ---- Hackathons ----------------------------------------- */
+.hackathons-marquee {
+  position: relative;
+}
+
+.hackathons-marquee-inner {
+  overflow: hidden;
+  padding: 12px 0;
+  position: relative;
+}
+
+.hackathons-marquee-inner::before,
+.hackathons-marquee-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hackathons-marquee-inner::before {
+  left: 0;
+  background: linear-gradient(to right, #F7F6F3, transparent);
+}
+
+.hackathons-marquee-inner::after {
+  right: 0;
+  background: linear-gradient(to left, #F7F6F3, transparent);
+}
+
+.hackathons-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: hackathons-marquee 34s linear infinite;
+}
+
+.hackathons-marquee:hover .hackathons-marquee-track {
+  animation-play-state: paused;
+}
+
+.hackathon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  padding-right: 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.hackathon-pill::after {
+  content: '•';
+  position: absolute;
+  right: 8px;
+  color: #9ca3af;
+}
+
+.hackathons-marquee-border {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D8D7D4, transparent);
+}
+
+@keyframes hackathons-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* ---- Skills grid ---------------------------------------- */
 .skills-grid {
   display: grid;
@@ -184,6 +262,10 @@
     grid-template-columns: 1fr;
   }
 
+  .hackathons-gallery {
+    column-count: 3;
+  }
+
   .projects-bento > div:first-child {
     grid-column: span 1;
   }
@@ -270,6 +352,14 @@
     padding-right: 16px;
   }
 
+  .hackathons-marquee {
+    padding: 10px 0;
+  }
+
+  .hackathons-gallery {
+    column-count: 1;
+  }
+
   /* Freelance: single-column stats */
   .freelance-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -334,6 +424,27 @@ html, body {
   border-radius: 20px;
   z-index: 201;
   box-shadow: 0 32px 64px rgba(0,0,0,0.12);
+}
+
+/* ============================================================
+   HACKATHON GALLERY RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hackathon-gallery-container {
+    column-count: 3 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hackathon-gallery-container {
+    column-count: 2 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hackathon-gallery-container {
+    column-count: 1 !important;
+  }
 }
 
 /* ============================================================
@@ -435,4 +546,3 @@ html, body {
     margin-bottom: -80px;
   }
 }
-

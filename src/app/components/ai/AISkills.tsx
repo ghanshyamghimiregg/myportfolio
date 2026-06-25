@@ -64,7 +64,7 @@ export function AISkills() {
           style={{ marginBottom: '56px' }}
         >
           <div>
-            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
+            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 50 }}>
               Skills
             </span>
             <h2
@@ -82,9 +82,6 @@ export function AISkills() {
               Hover to explore.
             </h2>
           </div>
-          <span style={{ fontSize: '0.875rem', color: AI.muted, maxWidth: '240px', textAlign: 'right', lineHeight: 1.6 }}>
-            Hover over any skill cluster to see related projects.
-          </span>
         </motion.div>
 
         <div className="skills-grid">
