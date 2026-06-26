@@ -38,7 +38,7 @@ export const LOCAL_REVIEWS: LocalReview[] = [
   },
   {
     "client": "Janet Haastrup",
-    "project": "Datta Collection Project",
+    "project": "Data Collection Project",
     "location": "Los Angeles, USA",
     "date": "2026",
     "rating": 5,
