@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { LinkedinIcon, InstagramIcon, FacebookIcon, type LucideIcon } from 'lucide-react'
+import { LinkedinIcon, InstagramIcon, FacebookIcon, GithubIcon, type LucideIcon } from 'lucide-react'
 import { GuitarToggle } from './GuitarToggle'
 import { LaptopToggle } from './LaptopToggle'
 import { FloatingPortrait } from './FloatingPortrait'
@@ -18,6 +18,7 @@ interface Props {
 interface MagneticPos { x: number; y: number }
 
 const AI_SOCIALS = [
+  { name: 'GitHub', color: '#171515', href: 'https://github.com/ghanshyamghimiregg', icon: GithubIcon },
   { name: 'Instagram', color: '#E1306C', href: 'https://www.instagram.com/ghanshyamghimiremusic/', icon: InstagramIcon },
   { name: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/ghanshyamghimiregg', icon: FacebookIcon },
   { name: 'LinkedIn', color: '#0A66C2', href: 'https://www.linkedin.com/in/ghanshyam-ghimire-441854213/', icon: LinkedinIcon },
