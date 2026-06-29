@@ -145,7 +145,7 @@ export function Navigation({ mode, onToggle }: Props) {
             Contact
           </motion.a>
           <motion.a
-            href="https://github.com"
+            href="https://github.com/ghanshyamghimiregg"
             target="_blank"
             rel="noopener noreferrer"
             animate={{ color: c.muted }}
