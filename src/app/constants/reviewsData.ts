@@ -20,7 +20,7 @@ export const LOCAL_REVIEWS: LocalReview[] = [
     "location": "Nepal",
     "date": "2025-2026",
     "rating": 5,
-    "text": "Ghanshyam is a skilled video editor and a creative gut. At Ghumne Kitab, he worked on editing interviews and book reviews, and also created thumbnails for us. He is quick at edits, and good at tight deadlines. He is reliable and easy to work with. Best wishes to him for his career.",
+    "text": "Ghanshyam is a skilled video editor and a creative guy. At Ghumne Kitab, he worked on editing interviews and book reviews, and also created thumbnails for us. He is quick at edits, and good at tight deadlines. He is reliable and easy to work with. Best wishes to him for his career.",
     "category": "External Freelance",
     "avatar": "SS",
     "id": 1
@@ -31,7 +31,7 @@ export const LOCAL_REVIEWS: LocalReview[] = [
     "location": "Figuil, Cameroon",
     "date": "2025",
     "rating": 4.5,
-    "text": "Ghanshyam is a very skilled AI professional. We worked on an OCR project related to education. He was responsive and understood the assignment. He requested from me, a non IT-Guy ;-) all the elements he needed to provide the best solution which fitted all my needs. I was very busy sometimes, but he was always requesting feedbacks, scheduling meetings, and doing its best to finish with the project as scheduled. It was a great journey to work with him on that project.",
+    "text": "Ghanshyam is a very skilled AI professional. We worked on an OCR project related to education. He was responsive and understood the assignment. He requested from me, a non IT-Guy ;-) all the elements he needed to provide the best solution which fitted all my needs. I was very busy sometimes, but he was always requesting feedbacks, scheduling meetings, and doing his best to finish with the project as scheduled. It was a great journey to work with him on that project.",
     "category": "Upwork",
     "avatar": "CD",
     "id": 2

@@ -3,5 +3,5 @@ Computer Vision
 Python
 React Native
 Django
-TenserFlow
+TensorFlow
 Machine Learning

@@ -139,7 +139,7 @@ export const LOCAL_PROJECTS: LocalProject[] = [
       "Python",
       "React Native",
       "Django",
-      "TenserFlow",
+      "TensorFlow",
       "Machine Learning"
     ],
     "demo": {
