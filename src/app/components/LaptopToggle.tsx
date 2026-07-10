@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'motion/react'
 
 interface Props {
@@ -12,6 +12,18 @@ export function LaptopToggle({ onSwitch }: Props) {
 
   const strokeColor = '#2C1610'
   const accentColor = '#B45309'
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        bodyControls.start({
+          rotate: [0, -3, 3, -2, 2, 0],
+          transition: { duration: 0.4, ease: 'easeInOut' }
+        })
+      }
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [bodyControls, isAnimating])
 
   const handleClick = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -51,6 +63,7 @@ export function LaptopToggle({ onSwitch }: Props) {
         padding: '16px',
         margin: 0,
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
@@ -110,6 +123,21 @@ export function LaptopToggle({ onSwitch }: Props) {
           ))}
         </svg>
       </motion.div>
+      <motion.span
+        animate={{ opacity: [0.3, 0.6, 0.3], y: [0, -4, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        style={{
+          marginTop: '12px',
+          fontSize: '0.65rem',
+          fontWeight: 500,
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: strokeColor,
+          pointerEvents: 'none',
+        }}
+      >
+        Click to switch
+      </motion.span>
     </button>
   )
 }
