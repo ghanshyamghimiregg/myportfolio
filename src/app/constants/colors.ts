@@ -1,23 +1,23 @@
 export const AI = {
-  bg: '#F7F6F3',
-  fg: '#1A1A1A',
-  accent: '#2563EB',
-  accentLight: '#EFF6FF',
-  muted: '#6B6B6B',
-  subtle: '#E8E7E4',
-  border: '#D8D7D4',
-  card: '#FFFFFF',
+  bg: 'var(--ai-bg)',
+  fg: 'var(--ai-fg)',
+  accent: 'var(--ai-accent)',
+  accentLight: 'var(--ai-accentLight)',
+  muted: 'var(--ai-muted)',
+  subtle: 'var(--ai-subtle)',
+  border: 'var(--ai-border)',
+  card: 'var(--ai-card)',
 }
 
 export const MUSIC = {
-  bg: '#FAF4E8',
-  fg: '#2C1610',
-  accent: '#B45309',
-  accentLight: '#FEF3C7',
-  muted: '#7C6652',
-  subtle: '#EDE4D0',
-  border: '#D9CFBA',
-  card: '#FFF8EE',
+  bg: 'var(--music-bg)',
+  fg: 'var(--music-fg)',
+  accent: 'var(--music-accent)',
+  accentLight: 'var(--music-accentLight)',
+  muted: 'var(--music-muted)',
+  subtle: 'var(--music-subtle)',
+  border: 'var(--music-border)',
+  card: 'var(--music-card)',
 }
 
 export type Mode = 'ai' | 'music'

@@ -30,8 +30,8 @@ export function GuitarToggle({ onSwitch }: Props) {
   const bodyControls = useAnimation()
   const stringControls = useAnimation()
 
-  const strokeColor = '#1A1A1A'
-  const accentColor = '#2563EB'
+  const strokeColor = 'var(--ai-muted)'
+  const accentColor = 'var(--ai-accent)'
 
   useEffect(() => {
     const interval = setInterval(() => {

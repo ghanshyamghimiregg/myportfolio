@@ -38,10 +38,10 @@ export function LoadingScreen({ onComplete }: Props) {
     onComplete()
   }
 
-  const guitarStroke = '#1A1A1A'
-  const guitarAccent = '#2563EB'
-  const laptopStroke = '#2C1610'
-  const laptopAccent = '#B45309'
+  const guitarStroke = 'var(--ai-muted)'
+  const guitarAccent = 'var(--ai-accent)'
+  const laptopStroke = 'var(--music-muted)'
+  const laptopAccent = 'var(--music-accent)'
 
   return (
     <AnimatePresence onExitComplete={handleExitComplete}>
@@ -60,7 +60,7 @@ export function LoadingScreen({ onComplete }: Props) {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '40px',
-            background: 'linear-gradient(160deg, #F7F6F3 0%, #FAF4E8 100%)',
+            background: 'linear-gradient(160deg, var(--ai-bg) 0%, var(--music-bg) 100%)',
             fontFamily: "'Inter', system-ui, sans-serif",
           }}
         >
@@ -142,7 +142,7 @@ export function LoadingScreen({ onComplete }: Props) {
                 fontSize: '2rem',
                 fontWeight: 400,
                 fontStyle: 'italic',
-                color: '#999',
+                color: 'var(--ai-muted)',
                 marginBottom: '60px',
               }}
             >
@@ -211,7 +211,7 @@ export function LoadingScreen({ onComplete }: Props) {
                 fontFamily: "'Playfair Display', Georgia, serif",
                 fontSize: 'clamp(1.5rem, 3vw, 2rem)',
                 fontWeight: 500,
-                color: '#1A1A1A',
+                color: 'var(--ai-fg)',
                 letterSpacing: '-0.02em',
                 margin: '0 0 12px',
                 lineHeight: 1.3,
@@ -222,7 +222,7 @@ export function LoadingScreen({ onComplete }: Props) {
             <p
               style={{
                 fontSize: '0.875rem',
-                color: '#6B6B6B',
+                color: 'var(--ai-muted)',
                 margin: 0,
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
@@ -241,7 +241,7 @@ export function LoadingScreen({ onComplete }: Props) {
             style={{
               width: '120px',
               height: '2px',
-              backgroundColor: '#E8E7E4',
+              backgroundColor: 'var(--ai-border)',
               borderRadius: '2px',
               overflow: 'hidden',
               marginTop: '8px',

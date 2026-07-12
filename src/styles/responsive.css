@@ -104,12 +104,12 @@
 
 .hackathons-marquee-inner::before {
   left: 0;
-  background: linear-gradient(to right, #F7F6F3, transparent);
+  background: linear-gradient(to right, var(--ai-bg), transparent);
 }
 
 .hackathons-marquee-inner::after {
   right: 0;
-  background: linear-gradient(to left, #F7F6F3, transparent);
+  background: linear-gradient(to left, var(--ai-bg), transparent);
 }
 
 .hackathons-marquee-track {

@@ -10,8 +10,8 @@ export function LaptopToggle({ onSwitch }: Props) {
   const bodyControls = useAnimation()
   const screenControls = useAnimation()
 
-  const strokeColor = '#2C1610'
-  const accentColor = '#B45309'
+  const strokeColor = 'var(--music-muted)'
+  const accentColor = 'var(--music-accent)'
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
-import { Brain, Music } from 'lucide-react'
+import { Brain, Music, Sun, Moon } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
 
@@ -11,15 +12,19 @@ interface Props {
 
 export function Navigation({ mode, onToggle }: Props) {
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
   const c = getColors(mode)
 
   useEffect(() => {
+    setMounted(true)
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
+    <>
     <motion.nav
       animate={{
         backgroundColor: c.bg,
@@ -131,6 +136,7 @@ export function Navigation({ mode, onToggle }: Props) {
               <Music size={18} strokeWidth={2.5} />
             </div>
           </button>
+
         </div>
 
         <div className="nav-links">
@@ -158,5 +164,34 @@ export function Navigation({ mode, onToggle }: Props) {
         </div>
       </div>
     </motion.nav>
+    {mounted && (
+      <motion.button
+        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+        style={{
+          position: 'fixed',
+          bottom: '24px',
+          left: '24px',
+          zIndex: 100,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '48px',
+          height: '48px',
+          borderRadius: '100px',
+          border: `1px solid ${c.border}`,
+          backgroundColor: c.card,
+          color: c.fg,
+          cursor: 'pointer',
+          padding: 0,
+          boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+        }}
+        title="Toggle theme"
+      >
+        {resolvedTheme === 'dark' ? <Sun size={20} strokeWidth={2.5} /> : <Moon size={20} strokeWidth={2.5} />}
+      </motion.button>
+    )}
+    </>
   )
 }

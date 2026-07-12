@@ -99,7 +99,7 @@ export function AISkills() {
                 padding: '28px',
                 borderRadius: '16px',
                 border: `1px solid ${activeCluster === cluster.category ? cluster.color : AI.border}`,
-                backgroundColor: activeCluster === cluster.category ? cluster.bg : AI.card,
+                backgroundColor: activeCluster === cluster.category ? `${cluster.color}15` : AI.card,
                 cursor: 'default',
                 transition: 'all 0.3s ease',
               }}
@@ -121,7 +121,7 @@ export function AISkills() {
                     style={{
                       padding: '6px 14px',
                       borderRadius: '100px',
-                      backgroundColor: activeCluster === cluster.category ? '#fff' : AI.subtle,
+                      backgroundColor: activeCluster === cluster.category ? AI.card : AI.subtle,
                       color: activeCluster === cluster.category ? cluster.color : AI.fg,
                       fontSize: '0.875rem',
                       fontWeight: 500,

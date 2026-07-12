@@ -13,11 +13,13 @@ import { MusicSongs } from './components/music/MusicSongs'
 import { MusicBehindSongs } from './components/music/MusicBehindSongs'
 
 import { MusicGallery } from './components/music/MusicGallery'
+import { getColors } from './constants/colors'
 import type { Mode } from './constants/colors'
 
 export default function App() {
   const [mode, setMode] = useState<Mode>('ai')
   const [loading, setLoading] = useState(true)
+  const c = getColors(mode)
 
   const handleToggle = () => setMode(m => m === 'ai' ? 'music' : 'ai')
 
@@ -34,10 +36,13 @@ export default function App() {
   return (
     <>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      <motion.div
-        animate={{ backgroundColor: mode === 'ai' ? '#F7F6F3' : '#FAF4E8' }}
-        transition={{ duration: 0.9, ease: [0.43, 0.13, 0.23, 0.96] }}
-        style={{ minHeight: '100vh', fontFamily: "'Inter', system-ui, sans-serif" }}
+      <div
+        style={{ 
+          backgroundColor: c.bg, 
+          transition: 'background-color 0.9s cubic-bezier(0.43, 0.13, 0.23, 0.96)',
+          minHeight: '100vh', 
+          fontFamily: "'Inter', system-ui, sans-serif" 
+        }}
       >
       <Navigation mode={mode} onToggle={handleToggle} />
       <Hero mode={mode} onSwitchToMusic={switchToMusic} onSwitchToAI={switchToAI} />
@@ -74,17 +79,17 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <footer style={{ borderTop: `1px solid ${mode === 'ai' ? '#D8D7D4' : '#D9CFBA'}` }}>
+      <footer style={{ borderTop: `1px solid ${c.border}`, transition: 'border-color 0.9s ease' }}>
         <div className="footer-inner">
-          <span style={{ color: mode === 'ai' ? '#6B6B6B' : '#7C6652', fontSize: '0.875rem' }}>
+          <span style={{ color: c.muted, fontSize: '0.875rem', transition: 'color 0.9s ease' }}>
             © 2026 Ghanshyam Ghimire
           </span>
-          <span style={{ color: mode === 'ai' ? '#6B6B6B' : '#7C6652', fontSize: '0.875rem' }}>
+          <span style={{ color: c.muted, fontSize: '0.875rem', transition: 'color 0.9s ease' }}>
             {mode === 'ai' ? 'AI Engineer' : 'Musician'} · Nepal
           </span>
         </div>
       </footer>
-      </motion.div>
+      </div>
     </>
   )
 }

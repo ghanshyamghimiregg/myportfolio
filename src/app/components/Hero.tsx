@@ -18,7 +18,7 @@ interface Props {
 interface MagneticPos { x: number; y: number }
 
 const AI_SOCIALS = [
-  { name: 'GitHub', color: '#171515', href: 'https://github.com/ghanshyamghimiregg', icon: GithubIcon },
+  { name: 'GitHub', color: 'var(--ai-fg)', shadowColor: 'rgba(128, 128, 128, 0.25)', href: 'https://github.com/ghanshyamghimiregg', icon: GithubIcon },
   { name: 'Instagram', color: '#E1306C', href: 'https://www.instagram.com/ghanshyamghimiremusic/', icon: InstagramIcon },
   { name: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/ghanshyamghimiregg', icon: FacebookIcon },
   { name: 'LinkedIn', color: '#0A66C2', href: 'https://www.linkedin.com/in/ghanshyam-ghimire-441854213/', icon: LinkedinIcon },
@@ -29,7 +29,7 @@ function SocialIconButton({
   borderColor,
   backgroundColor,
 }: {
-  social: { name: string; color: string; href: string; icon: LucideIcon }
+  social: { name: string; color: string; shadowColor?: string; href: string; icon: LucideIcon }
   borderColor: string
   backgroundColor: string
 }) {
@@ -60,7 +60,7 @@ function SocialIconButton({
       }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = social.color
-        e.currentTarget.style.boxShadow = `0 12px 28px ${social.color}22`
+        e.currentTarget.style.boxShadow = `0 12px 28px ${social.shadowColor || social.color + '22'}`
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = borderColor

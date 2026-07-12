@@ -46,7 +46,7 @@ function CollageSnap({ snap, index }: { snap: typeof HACKATHON_SNAPS[number]; in
         }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          backgroundColor: '#fff',
+          backgroundColor: AI.card,
           padding: '6px 6px 24px 6px',
           borderRadius: '4px',
           position: 'relative',

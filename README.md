@@ -47,10 +47,9 @@ The site will be available locally at `http://localhost:5173`.
 
 ## 📦 Deployment
 
-This project is optimized for deployment on Vercel and Netlify out of the box.
+This project is optimized for deployment on Vercel out of the box.
 
 - **Vercel**: Import the repository in Vercel. It will automatically detect the settings from `vercel.json`.
-- **Netlify**: Connect your GitHub repo, and it will use the `dist` directory and `npm run build` as configured.
 
 ## 📫 Connect with Me
 
