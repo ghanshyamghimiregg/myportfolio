@@ -10,6 +10,7 @@ const SONGS = [
     year: '2024',
     cover: '/songs/gantabya/cover.png',
     preview: '/songs/gantabya/preview.wav',
+    description: 'A love story about finding someone to journey through life with. The word "Gantabya" means destination — because the journey matters more when someone walks it with you.',
     streaming: {
       spotify: 'https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS',
       youtube: 'https://youtu.be/yd7lsKnmB-Q',
@@ -23,6 +24,7 @@ const SONGS = [
     year: '2025',
     cover: '/songs/sapana-ko-udaan/cover.jpg',
     preview: '/songs/sapana-ko-udaan/preview.wav',
+    description: 'The story of every Nepali youth torn between staying home and seeking opportunities abroad — the weight of dreams against the pull of belonging.',
     streaming: {
       spotify: 'https://open.spotify.com/track/2JZnTfQlMtOJHAdY4PccsL',
       youtube: 'https://youtu.be/sUzGfuGjWQw',
@@ -36,6 +38,7 @@ const SONGS = [
     year: '2025',
     cover: '/songs/nabhaniyeka-sapana/cover.jpg',
     preview: '/songs/nabhaniyeka-sapana/preview.wav',
+    description: 'A tribute to unspoken love — a father\'s quiet sacrifices for his child\'s dreams. Sometimes love finds its purest form not in words, but in silence.',
     streaming: {
       spotify: 'https://open.spotify.com/track/0Xk6qjuLqJxymXosbJZVh0',
       youtube: 'https://youtu.be/_cucMicv2jg',
@@ -49,6 +52,7 @@ const SONGS = [
     year: '2026',
     cover: '/songs/aabhaas/cover.png',
     preview: '/songs/aabhaas/preview.wav',
+    description: 'That gentle realization when you return from a date and find yourself lost in their thoughts — the sweet आभास of falling in love, soft and deeply personal.',
     streaming: {
       spotify: 'https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT',
       youtube: 'https://youtu.be/_Vc8b-n6-Xw',
@@ -303,7 +307,7 @@ export function MusicSongs() {
   }
 
   return (
-    <section id="songs" style={{ backgroundColor: MUSIC.subtle, padding: '120px 24px' }}>
+    <section id="songs" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -332,11 +336,7 @@ export function MusicSongs() {
           </h2>
         </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '20px',
-        }}>
+        <div className="music-songs-grid">
           {SONGS.map((song, i) => (
             <motion.div
               key={song.id}

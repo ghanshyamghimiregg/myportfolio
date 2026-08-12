@@ -215,3 +215,48 @@
     line-height: 1.5;
   }
 }
+
+/* ============================================================
+   GLOBAL INTERACTIVE ACCESSIBILITY
+   ============================================================ */
+@layer base {
+  /* Consistent focus rings for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid var(--ai-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Remove focus ring on mouse click (only show for keyboard) */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent layout shift from scrollbar */
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: var(--ai-accentLight);
+    color: var(--ai-accent);
+  }
+
+  .dark ::selection {
+    background-color: var(--ai-accentLight);
+    color: var(--ai-fg);
+  }
+
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}

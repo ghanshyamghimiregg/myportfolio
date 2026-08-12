@@ -159,7 +159,7 @@ export function AIProjects() {
   const others = LOCAL_PROJECTS.filter(p => p.id !== verifAI.id)
 
   return (
-    <section id="projects" className="section-pad section-pad-x" style={{ backgroundColor: AI.subtle, padding: '120px 24px' }}>
+    <section id="projects" className="section-pad section-pad-x" style={{ backgroundColor: AI.subtle }}>
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -199,7 +199,7 @@ export function AIProjects() {
           className="projects-bento"
         >
           {/* VerifAI — featured, spans 2 columns */}
-          <div style={{ gridColumn: 'span 2' }}>
+          <div className="projects-featured-card">
             <ProjectCard project={verifAI} featured onClick={() => setActiveProject(verifAI)} />
           </div>
 

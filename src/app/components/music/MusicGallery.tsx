@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
 import { MUSIC } from '../../constants/colors'
+import { ImageWithFallback } from '../figma/ImageWithFallback'
 
 /* 
  * Photos grouped by orientation for better layout:
@@ -57,7 +58,7 @@ function CollagePhoto({ photo, index, rotation }: { photo: typeof PHOTOS[0]; ind
         }}
       >
         <div style={{ borderRadius: '2px', overflow: 'hidden' }}>
-          <img
+          <ImageWithFallback
             src={photo.src}
             alt={photo.alt}
             loading="lazy"
@@ -78,7 +79,7 @@ export function MusicGallery() {
   const rotations = [-3, 2, -2, 4, 3, -4, 2, -3, -2, 3, -4, 2]
 
   return (
-    <section id="gallery" style={{ backgroundColor: MUSIC.subtle, padding: '120px 24px' }}>
+    <section id="gallery" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -105,12 +106,7 @@ export function MusicGallery() {
         </motion.div>
 
         {/* Masonry-like collage with CSS columns */}
-        <div
-          style={{
-            columnCount: 4,
-            columnGap: '12px',
-          }}
-        >
+        <div className="music-gallery-grid">
           {PHOTOS.map((photo, i) => (
             <div
               key={photo.id}

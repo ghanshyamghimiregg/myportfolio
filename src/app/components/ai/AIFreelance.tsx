@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
-import { Star, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion } from 'motion/react'
+import { Star, ExternalLink } from 'lucide-react'
 import { AI } from '../../constants/colors'
 import { ReviewModal } from './ReviewModal'
 
@@ -128,13 +128,8 @@ export function AIFreelance() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [selectedReview, setSelectedReview] = useState<LocalReview | null>(null)
 
-  const scroll = (dir: 'left' | 'right') => {
-    if (!scrollRef.current) return
-    scrollRef.current.scrollBy({ left: dir === 'right' ? 340 : -340, behavior: 'smooth' })
-  }
-
   return (
-    <section className="section-pad" style={{ backgroundColor: AI.subtle, padding: '120px 0' }}>
+    <section className="section-pad" style={{ backgroundColor: AI.subtle }}>
       <div className="section-inner-padded">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -195,10 +190,10 @@ export function AIFreelance() {
           >
             Up
           </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+          <div className="freelance-card-content" style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
               <span style={{ fontSize: '1.125rem', fontWeight: 600, color: AI.fg }}>Ghanshyam G.</span>
-              <span style={{ padding: '2px 10px', borderRadius: '100px', backgroundColor: '#E8F8E2', color: '#14A800', fontSize: '0.75rem', fontWeight: 600 }}>
+              <span style={{ padding: '2px 10px', borderRadius: '100px', backgroundColor: '#E8F8E2', color: '#14A800', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
                 Top Rated
               </span>
             </div>
@@ -216,8 +211,9 @@ export function AIFreelance() {
             href="https://www.upwork.com/freelancers/~01043444993a97d448?mp_source=share"
             target="_blank"
             rel="noopener noreferrer"
+            className="freelance-profile-link"
             style={{
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
               padding: '10px 20px',
@@ -228,6 +224,7 @@ export function AIFreelance() {
               fontSize: '0.875rem',
               fontWeight: 600,
               flexShrink: 0,
+              whiteSpace: 'nowrap',
             }}
           >
             View Profile <ExternalLink size={14} />
@@ -245,15 +242,7 @@ export function AIFreelance() {
       >
         <div
           ref={scrollRef}
-          style={{
-            display: 'flex',
-            gap: '16px',
-            padding: '8px 24px',
-            overflowX: 'auto',
-            scrollbarWidth: 'none',
-            paddingLeft: 'calc((100vw - 1200px) / 2 + 24px)',
-            paddingRight: 'calc((100vw - 1200px) / 2 + 24px)',
-          }}
+          className="freelance-review-scroll"
         >
           {LOCAL_REVIEWS.map(r => (
             <ReviewCard key={r.id} review={r} onClick={() => setSelectedReview(r)} />

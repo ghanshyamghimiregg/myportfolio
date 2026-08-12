@@ -96,8 +96,9 @@ function MagneticButton({ children, href, primary, mode }: { children: React.Rea
       style={{
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '8px',
-        padding: '14px 28px',
+        padding: '13px 28px',
         borderRadius: '100px',
         textDecoration: 'none',
         fontFamily: 'inherit',
@@ -108,6 +109,7 @@ function MagneticButton({ children, href, primary, mode }: { children: React.Rea
         color: primary ? c.bg : c.fg,
         border: primary ? 'none' : `1.5px solid ${c.border}`,
         letterSpacing: '-0.01em',
+        minHeight: '48px',
       }}
     >
       {children}
@@ -129,20 +131,11 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
   const isAI = mode === 'ai'
 
   return (
-    <section
-      className="hero-section"
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        paddingTop: '80px',
-        paddingBottom: '80px',
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', width: '100%' }}>
+    <section className="hero-section">
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
         <div className="hero-grid">
           {/* Left: Text content */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', minWidth: 0 }}>
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
               <span
                 style={{
@@ -195,7 +188,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 fontSize: '1.0625rem',
                 lineHeight: 1.7,
                 color: c.muted,
-                maxWidth: '420px',
+                maxWidth: '42ch',
                 margin: 0,
               }}
             >
@@ -243,6 +236,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 variants={fadeUp}
                 initial="hidden"
                 animate="show"
+                className="hero-social-icons"
                 style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', paddingTop: '2px' }}
               >
                 {AI_SOCIALS.map(s => (
@@ -277,7 +271,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
             )}
           </motion.div>
 
-          {/* Right: Portrait — AnimatePresence for smooth crossfade */}
+          {/* Portrait column */}
           <motion.div
             custom={2}
             variants={fadeUp}
@@ -297,7 +291,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.985 }}
                 transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-                style={{ transformOrigin: 'left bottom' }}
+                style={{ transformOrigin: 'center bottom' }}
               >
                 <FloatingPortrait
                   mode={mode}
@@ -314,7 +308,8 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}
+          style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}
+          className="hero-scroll-indicator"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

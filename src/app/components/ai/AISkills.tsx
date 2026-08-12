@@ -48,12 +48,9 @@ const SKILL_CLUSTERS: {
 
 export function AISkills() {
   const [activeCluster, setActiveCluster] = useState<string | null>(null)
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
-
-  const active = SKILL_CLUSTERS.find(c => c.category === activeCluster)
 
   return (
-    <section className="section-pad section-pad-x" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -64,7 +61,7 @@ export function AISkills() {
           style={{ marginBottom: '56px' }}
         >
           <div>
-            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 50 }}>
+            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
               Skills
             </span>
             <h2
@@ -79,7 +76,7 @@ export function AISkills() {
                 lineHeight: 1.2,
               }}
             >
-              Hover to explore.
+              Hover / tap to explore.
             </h2>
           </div>
         </motion.div>
@@ -94,13 +91,14 @@ export function AISkills() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               onHoverStart={() => setActiveCluster(cluster.category)}
               onHoverEnd={() => setActiveCluster(null)}
+              onClick={() => setActiveCluster(c => c === cluster.category ? null : cluster.category)}
               whileHover={{ y: -4 }}
               style={{
                 padding: '28px',
                 borderRadius: '16px',
                 border: `1px solid ${activeCluster === cluster.category ? cluster.color : AI.border}`,
-                backgroundColor: activeCluster === cluster.category ? `${cluster.color}15` : AI.card,
-                cursor: 'default',
+                backgroundColor: activeCluster === cluster.category ? `${cluster.color}12` : AI.card,
+                cursor: 'pointer',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -116,8 +114,6 @@ export function AISkills() {
                   <motion.span
                     key={skill}
                     whileHover={{ scale: 1.08 }}
-                    onHoverStart={() => setHoveredSkill(skill)}
-                    onHoverEnd={() => setHoveredSkill(null)}
                     style={{
                       padding: '6px 14px',
                       borderRadius: '100px',

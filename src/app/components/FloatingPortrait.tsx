@@ -75,6 +75,7 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
   }
 
   return (
+    <div className="portrait-wrapper">
     <div
       ref={containerRef}
       onMouseMove={handleMove}
@@ -179,6 +180,7 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
           </div>
         </motion.div>
       </div>
+    </div>
     </div>
   )
 }

@@ -26,6 +26,8 @@ export function Navigation({ mode, onToggle }: Props) {
   return (
     <>
     <motion.nav
+      role="navigation"
+      aria-label="Main navigation"
       animate={{
         backgroundColor: c.bg,
         borderColor: scrolled ? c.border : 'transparent',
@@ -45,7 +47,8 @@ export function Navigation({ mode, onToggle }: Props) {
         <motion.span
           animate={{ color: c.fg }}
           transition={{ duration: 0.6 }}
-          style={{ fontSize: '1rem', fontWeight: 500, letterSpacing: '-0.01em' }}
+          className="nav-name"
+          style={{ fontWeight: 500, letterSpacing: '-0.01em' }}
         >
           Ghanshyam Ghimire
         </motion.span>
@@ -53,6 +56,7 @@ export function Navigation({ mode, onToggle }: Props) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <button
             onClick={onToggle}
+            aria-label={`Switch to ${mode === 'ai' ? 'music' : 'AI'} mode`}
             style={{
               position: 'relative',
               width: '92px',
@@ -169,6 +173,7 @@ export function Navigation({ mode, onToggle }: Props) {
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
+        className="theme-toggle-btn"
         style={{
           position: 'fixed',
           bottom: '24px',
@@ -177,19 +182,20 @@ export function Navigation({ mode, onToggle }: Props) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '48px',
-          height: '48px',
+          width: '44px',
+          height: '44px',
           borderRadius: '100px',
           border: `1px solid ${c.border}`,
           backgroundColor: c.card,
           color: c.fg,
           cursor: 'pointer',
           padding: 0,
-          boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
         }}
         title="Toggle theme"
+        aria-label="Toggle dark/light mode"
       >
-        {resolvedTheme === 'dark' ? <Sun size={20} strokeWidth={2.5} /> : <Moon size={20} strokeWidth={2.5} />}
+        {resolvedTheme === 'dark' ? <Sun size={18} strokeWidth={2.5} /> : <Moon size={18} strokeWidth={2.5} />}
       </motion.button>
     )}
     </>

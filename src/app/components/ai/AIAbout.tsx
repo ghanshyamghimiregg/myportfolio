@@ -5,7 +5,7 @@ const skills = ['Machine Learning', 'Computer Vision', 'OCR Systems', 'NLP', 'Py
 
 export function AIAbout() {
   return (
-    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
+    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
       <div className="section-inner">
         <div className="about-grid">
           {/* Left: Label + Heading */}
@@ -61,7 +61,7 @@ export function AIAbout() {
           </div>
 
           {/* Right: Bio + Skills */}
-          <div style={{ paddingTop: '55px' }}>
+          <div className="about-right-col" style={{ paddingTop: '55px' }}>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

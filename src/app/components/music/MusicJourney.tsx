@@ -56,7 +56,7 @@ const MILESTONES = [
 
 export function MusicJourney() {
   return (
-    <section style={{ backgroundColor: MUSIC.subtle, padding: '120px 24px' }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

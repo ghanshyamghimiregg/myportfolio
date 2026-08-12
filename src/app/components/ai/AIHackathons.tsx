@@ -73,7 +73,7 @@ export function AIHackathons() {
   const marqueeItems = [...HACKATHON_NAMES, ...HACKATHON_NAMES]
 
   return (
-    <section id="hackathons" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg, padding: '120px 24px' }}>
+    <section id="hackathons" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -82,7 +82,7 @@ export function AIHackathons() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '40px' }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 50 }}>
+          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
             Hackathons
           </span>
           <h2
@@ -137,7 +137,6 @@ export function AIHackathons() {
           <div 
             className="hackathon-gallery-container"
             style={{
-              columnCount: 4,
               columnGap: '12px',
             }}
           >

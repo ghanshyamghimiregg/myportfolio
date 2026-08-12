@@ -54,11 +54,12 @@ function SocialIcon({ type, color }: { type: string; color: string }) {
 
 export function MusicStatement() {
   return (
-    <section id="about" style={{ backgroundColor: MUSIC.bg, padding: '120px 24px' }}>
+    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.bg }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <div className="music-statement-grid">
           {/* Left: Photo */}
           <motion.div
+            className="music-statement-photo-col"
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -82,6 +83,7 @@ export function MusicStatement() {
 
             {/* Floating genre card */}
             <motion.div
+              className="music-genre-card"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -111,6 +113,7 @@ export function MusicStatement() {
 
           {/* Right: Statement */}
           <motion.div
+            className="music-statement-text-col"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -119,7 +122,7 @@ export function MusicStatement() {
             <blockquote
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+                fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
                 fontWeight: 400,
                 fontStyle: 'italic',
                 lineHeight: 1.35,
@@ -133,7 +136,7 @@ export function MusicStatement() {
             </blockquote>
             <p
               style={{
-                fontSize: '1.125rem',
+                fontSize: '1.0625rem',
                 lineHeight: 1.8,
                 color: MUSIC.muted,
                 margin: '0 0 40px',

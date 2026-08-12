@@ -99,7 +99,7 @@ export function MusicBehindSongs() {
   }
 
   return (
-    <section style={{ backgroundColor: MUSIC.bg, padding: '120px 24px' }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.bg }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Header with navigation */}
         <motion.div
@@ -107,6 +107,7 @@ export function MusicBehindSongs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
+          className="music-behind-header"
           style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px' }}
         >
           <div>
@@ -141,14 +142,18 @@ export function MusicBehindSongs() {
                   style={{
                     width: i === currentIndex ? '32px' : '10px',
                     height: '10px',
+                    minWidth: i === currentIndex ? '32px' : '10px',
                     borderRadius: '100px',
                     border: 'none',
                     backgroundColor: i === currentIndex ? MUSIC.accent : MUSIC.border,
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     padding: 0,
+                    /* Larger touch target */
+                    position: 'relative',
                   }}
                   aria-label={`Go to ${s.song}`}
+                  aria-current={i === currentIndex ? 'step' : undefined}
                 />
               ))}
             </div>
@@ -204,7 +209,7 @@ export function MusicBehindSongs() {
         </motion.div>
 
         {/* Song content with animation */}
-        <div style={{ position: 'relative', minHeight: '480px' }}>
+        <div className="music-behind-min-height" style={{ position: 'relative', minHeight: '480px' }}>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.article
               key={story.number}
@@ -214,12 +219,7 @@ export function MusicBehindSongs() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '64px',
-                alignItems: 'center',
-              }}
+              className="music-behind-article"
             >
               {/* Image */}
               <div style={{ position: 'relative', paddingTop: '20px' }}>
