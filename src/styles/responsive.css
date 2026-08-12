@@ -559,16 +559,6 @@ img:not(.portrait-img), video {
     padding-right: 12px;
   }
 
-  .section-pad-x {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .section-inner-padded {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
   .freelance-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -734,10 +724,22 @@ img:not(.portrait-img), video {
   }
 }
 
+/* 480px and below: tighten gap, use fluid padding via the section container */
 @media (max-width: 480px) {
   .music-songs-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Also reduce section horizontal padding so cards have more room */
+  .section-pad-x {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-inner-padded {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
