@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { X, FileText, ExternalLink } from 'lucide-react'
+import { X, ExternalLink } from 'lucide-react'
 import { AI } from '../../constants/colors'
 import type { LocalProject } from '../../constants/projectsData'
 
@@ -9,12 +9,37 @@ interface Props {
   onClose: () => void
 }
 
+/** Prevent the background page from scrolling while a modal is open.
+ *  Strategy: block wheel + touchmove on the backdrop element itself.
+ *  We never touch body.style, so the page scroll position is never altered. */
+function useScrollLock(active: boolean) {
+  useEffect(() => {
+    if (!active) return
+
+    const prevent = (e: Event) => {
+      // Allow scrolling inside the modal container itself
+      const modal = document.querySelector('.modal-container')
+      if (modal && modal.contains(e.target as Node)) return
+      e.preventDefault()
+    }
+
+    // passive: false is required for preventDefault to work on wheel/touchmove
+    document.addEventListener('wheel', prevent, { passive: false })
+    document.addEventListener('touchmove', prevent, { passive: false })
+
+    return () => {
+      document.removeEventListener('wheel', prevent)
+      document.removeEventListener('touchmove', prevent)
+    }
+  }, [active])
+}
+
 export function ProjectModal({ project, onClose }: Props) {
   const isVideo = project?.demo?.type === 'video'
   const isPdf = project?.demo?.type === 'pdf'
   const isImage = project?.demo?.type === 'image'
 
-  // Close on Escape key
+  // Close on Escape
   useEffect(() => {
     if (!project) return
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -22,20 +47,14 @@ export function ProjectModal({ project, onClose }: Props) {
     return () => document.removeEventListener('keydown', handler)
   }, [project, onClose])
 
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (project) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => { document.body.style.overflow = '' }
-  }, [project])
+  // Lock background scroll — never moves the page position
+  useScrollLock(!!project)
 
   return (
     <AnimatePresence>
       {project && (
         <>
+          {/* Backdrop — clicking it closes, scrolling on it is blocked */}
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
@@ -51,18 +70,22 @@ export function ProjectModal({ project, onClose }: Props) {
               WebkitBackdropFilter: 'blur(6px)',
             }}
           />
+
+          {/* Modal */}
           <motion.div
             key="modal"
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.97 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: 24, scale: 0.97 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="modal-container"
             role="dialog"
             aria-modal="true"
             aria-label={project.title}
+            // Stop click-through to backdrop for clicks inside the modal
+            onClick={e => e.stopPropagation()}
           >
-            {/* Header */}
+            {/* Sticky header */}
             <div
               className="modal-header"
               style={{
@@ -73,13 +96,20 @@ export function ProjectModal({ project, onClose }: Props) {
                 gap: '16px',
                 backgroundColor: AI.card,
                 borderRadius: '20px 20px 0 0',
+                position: 'sticky',
+                top: 0,
+                zIndex: 1,
               }}
             >
               <div style={{ minWidth: 0 }}>
-                <span style={{ fontSize: '0.75rem', color: AI.accent, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>
-                  Project Demo & Info
-                </span>
-                <h2 style={{ color: AI.fg, fontSize: 'clamp(1.125rem, 3vw, 1.5rem)', fontWeight: 600, margin: '4px 0 0', letterSpacing: '-0.02em', wordBreak: 'break-word' }}>
+                <h2 style={{
+                  color: AI.fg,
+                  fontSize: 'clamp(1.0625rem, 3vw, 1.375rem)',
+                  fontWeight: 600,
+                  margin: '0',
+                  letterSpacing: '-0.02em',
+                  wordBreak: 'break-word',
+                }}>
                   {project.title}
                 </h2>
               </div>
@@ -104,14 +134,15 @@ export function ProjectModal({ project, onClose }: Props) {
               </button>
             </div>
 
-            {/* Content Container */}
+            {/* Body */}
             <div className="modal-body" style={{ backgroundColor: AI.card }}>
-              {/* Media Demo */}
+
+              {/* Media demo */}
               {project.demo && (
                 <div
                   style={{
-                    marginBottom: '32px',
-                    borderRadius: '12px',
+                    marginBottom: '28px',
+                    borderRadius: '10px',
                     overflow: 'hidden',
                     border: `1px solid ${AI.border}`,
                     backgroundColor: '#000',
@@ -143,27 +174,18 @@ export function ProjectModal({ project, onClose }: Props) {
                     <div style={{ width: '100%', backgroundColor: AI.card, display: 'flex', flexDirection: 'column' }}>
                       <iframe
                         src={`${project.demo.src}#toolbar=0`}
-                        style={{ width: '100%', height: '450px', border: 'none' }}
+                        style={{ width: '100%', height: '480px', border: 'none', display: 'block' }}
                         title={project.title}
                       />
                       <div
                         style={{
-                          padding: '16px',
+                          padding: '12px 16px',
                           borderTop: `1px solid ${AI.border}`,
                           display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: '12px',
-                          flexWrap: 'wrap',
+                          justifyContent: 'flex-end',
                           backgroundColor: AI.card,
                         }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-                          <FileText size={20} color={AI.accent} />
-                          <span style={{ fontSize: '0.875rem', fontWeight: 500, color: AI.fg, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                            {project.demo.src.split('/').pop()}
-                          </span>
-                        </div>
                         <a
                           href={project.demo.src}
                           target="_blank"
@@ -172,15 +194,13 @@ export function ProjectModal({ project, onClose }: Props) {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
-                            padding: '8px 16px',
+                            padding: '7px 14px',
                             backgroundColor: AI.accent,
                             color: '#fff',
-                            borderRadius: '100px',
+                            borderRadius: '8px',
                             textDecoration: 'none',
                             fontWeight: 500,
                             fontSize: '0.8125rem',
-                            whiteSpace: 'nowrap',
-                            flexShrink: 0,
                           }}
                         >
                           Open PDF <ExternalLink size={12} />
@@ -192,34 +212,30 @@ export function ProjectModal({ project, onClose }: Props) {
               )}
 
               {/* Description */}
-              <div style={{ marginBottom: '32px' }}>
-                <SectionTitle>About the Project</SectionTitle>
-                <p style={{ fontSize: '1rem', color: AI.fg, lineHeight: 1.75, marginTop: '10px', marginBottom: 0, whiteSpace: 'pre-line' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <p style={{ fontSize: '1rem', color: AI.fg, lineHeight: 1.75, margin: 0, whiteSpace: 'pre-line' }}>
                   {project.info}
                 </p>
               </div>
 
-              {/* Technologies */}
+              {/* Skills */}
               {project.skills && project.skills.length > 0 && (
-                <div>
-                  <SectionTitle>Skills & Technologies</SectionTitle>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
-                    {project.skills.map(skill => (
-                      <span
-                        key={skill}
-                        style={{
-                          padding: '6px 14px',
-                          borderRadius: '100px',
-                          backgroundColor: AI.accentLight,
-                          color: AI.accent,
-                          fontSize: '0.8125rem',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {project.skills.map(skill => (
+                    <span
+                      key={skill}
+                      style={{
+                        padding: '4px 10px',
+                        borderRadius: '4px',
+                        backgroundColor: AI.subtle,
+                        color: AI.muted,
+                        fontSize: '0.8125rem',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               )}
             </div>
@@ -227,13 +243,5 @@ export function ProjectModal({ project, onClose }: Props) {
         </>
       )}
     </AnimatePresence>
-  )
-}
-
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: AI.muted, fontWeight: 600 }}>
-      {children}
-    </span>
   )
 }

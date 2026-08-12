@@ -18,7 +18,7 @@ export function LaptopToggle({ onSwitch }: Props) {
       if (!isAnimating) {
         bodyControls.start({
           rotate: [0, -3, 3, -2, 2, 0],
-          transition: { duration: 0.4, ease: 'easeInOut' }
+          transition: { duration: 0.4, ease: 'easeInOut' },
         })
       }
     }, 4000)
@@ -63,7 +63,6 @@ export function LaptopToggle({ onSwitch }: Props) {
         padding: '16px',
         margin: 0,
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
@@ -88,34 +87,23 @@ export function LaptopToggle({ onSwitch }: Props) {
           <rect x="18" y="8" width="84" height="54" rx="6" stroke={strokeColor} strokeWidth="1.6" />
           <motion.rect
             animate={screenControls}
-            x="24"
-            y="14"
-            width="72"
-            height="42"
-            rx="3"
-            fill={accentColor}
-            opacity="0.12"
+            x="24" y="14" width="72" height="42" rx="3"
+            fill={accentColor} opacity="0.12"
           />
           {[22, 30, 38, 46].map((y, i) => (
             <motion.line
               key={y}
               animate={screenControls}
-              x1="30"
-              y1={y}
-              x2={i % 2 === 0 ? 78 : 64}
-              y2={y}
-              stroke={accentColor}
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              opacity="0.55"
+              x1="30" y1={y}
+              x2={i % 2 === 0 ? 78 : 64} y2={y}
+              stroke={accentColor} strokeWidth="1.2" strokeLinecap="round" opacity="0.55"
             />
           ))}
           <motion.circle animate={screenControls} cx="86" cy="18" r="2.5" fill={accentColor} opacity="0.7" />
           <rect x="16" y="62" width="88" height="4" rx="2" fill={strokeColor} opacity="0.25" />
           <path
             d="M8 66 L112 66 C114 66 116 68 116 70 L116 78 C116 82 112 86 108 88 L12 88 C8 86 4 82 4 78 L4 70 C4 68 6 66 8 66 Z"
-            stroke={strokeColor}
-            strokeWidth="1.6"
+            stroke={strokeColor} strokeWidth="1.6"
           />
           <rect x="46" y="74" width="28" height="10" rx="3" stroke={strokeColor} strokeWidth="1" opacity="0.45" />
           {[24, 34, 44, 54, 64, 74, 84].map(x => (
@@ -123,21 +111,6 @@ export function LaptopToggle({ onSwitch }: Props) {
           ))}
         </svg>
       </motion.div>
-      <motion.span
-        animate={{ opacity: [0.3, 0.6, 0.3], y: [0, -4, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        style={{
-          marginTop: '12px',
-          fontSize: '0.65rem',
-          fontWeight: 500,
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: strokeColor,
-          pointerEvents: 'none',
-        }}
-      >
-        Click to switch
-      </motion.span>
     </button>
   )
 }

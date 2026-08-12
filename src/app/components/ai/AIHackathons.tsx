@@ -82,19 +82,15 @@ export function AIHackathons() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '40px' }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
-            Hackathons
-          </span>
           <h2
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
               fontWeight: 500,
               color: AI.fg,
-              marginTop: '12px',
-              marginBottom: '0',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.2,
+              margin: '0',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.15,
             }}
           >
             Building & Pitching
@@ -130,8 +126,8 @@ export function AIHackathons() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: AI.muted, margin: '0 0 18px' }}>
-            Some snaps from the hackathons.
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: AI.muted, margin: '0 0 24px' }}>
+            Moments from the events.
           </p>
 
           <div 

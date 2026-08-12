@@ -3,16 +3,15 @@ import { motion } from 'motion/react'
 import { Star, ExternalLink } from 'lucide-react'
 import { AI } from '../../constants/colors'
 import { ReviewModal } from './ReviewModal'
-
-const STATS = [
-  { label: 'Job Success', value: '100%', icon: '✓' },
-  { label: 'Projects Completed', value: '2', icon: '◉' },
-  { label: 'Client Satisfaction', value: '4.75 ★', icon: '★' },
-  { label: 'Total Earnings', value: '$110+', icon: '↑' },
-]
-
 import { LOCAL_REVIEWS } from '../../constants/reviewsData'
 import type { LocalReview } from '../../constants/reviewsData'
+
+const STATS = [
+  { label: 'Job Success', value: '100%' },
+  { label: 'Completed', value: '2' },
+  { label: 'Satisfaction', value: '4.75 ★' },
+  { label: 'Earnings', value: '$110+' },
+]
 
 function ReviewCard({ review, onClick }: { review: LocalReview; onClick: () => void }) {
   const shouldTruncate = review.text.length > 160
@@ -21,103 +20,101 @@ function ReviewCard({ review, onClick }: { review: LocalReview; onClick: () => v
     <motion.div
       layout
       onClick={onClick}
-      whileHover={{ y: -4, borderColor: AI.accent }}
+      whileHover={{ y: -3, borderColor: AI.accent }}
+      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
       style={{
         backgroundColor: AI.card,
         border: `1px solid ${AI.border}`,
-        borderRadius: '16px',
+        borderRadius: '14px',
         padding: '24px',
         width: '320px',
         minWidth: '320px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '16px',
+        gap: '14px',
         flexShrink: 0,
         cursor: 'pointer',
         userSelect: 'none',
+        transition: 'border-color 0.2s',
       }}
       className="review-card-width"
     >
+      {/* Stars + date */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', gap: '3px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '2px', alignItems: 'center' }}>
           {Array.from({ length: 5 }).map((_, i) => {
-            const starValue = i + 1;
-            if (review.rating >= starValue) {
-              return <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />;
-            } else if (review.rating > starValue - 1) {
-              return (
-                <div key={i} style={{ position: 'relative', width: 14, height: 14, display: 'inline-block' }}>
-                  <Star size={14} color="#F59E0B" />
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '50%', overflow: 'hidden' }}>
-                    <Star size={14} fill="#F59E0B" color="#F59E0B" />
-                  </div>
+            const v = i + 1
+            if (review.rating >= v) return <Star key={i} size={13} fill="#F59E0B" color="#F59E0B" />
+            if (review.rating > v - 1) return (
+              <div key={i} style={{ position: 'relative', width: 13, height: 13, display: 'inline-block' }}>
+                <Star size={13} color="#F59E0B" />
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '50%', overflow: 'hidden' }}>
+                  <Star size={13} fill="#F59E0B" color="#F59E0B" />
                 </div>
-              );
-            } else {
-              return <Star key={i} size={14} color="#E2E8F0" />;
-            }
+              </div>
+            )
+            return <Star key={i} size={13} color={AI.border} />
           })}
-          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: AI.fg, marginLeft: '4px' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: AI.fg, marginLeft: '5px' }}>
             {review.rating}
           </span>
         </div>
         <span style={{ fontSize: '0.75rem', color: AI.muted }}>{review.date}</span>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <p
-          style={{
-            fontSize: '0.9375rem',
-            color: AI.fg,
-            lineHeight: 1.7,
-            margin: 0,
-            display: '-webkit-box',
-            WebkitLineClamp: 4,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          "{review.text}"
-        </p>
-        {shouldTruncate && (
-          <span
-            style={{
-              fontSize: '0.75rem',
-              color: AI.accent,
-              fontWeight: 600,
-              alignSelf: 'flex-start',
-              marginTop: '4px',
-            }}
-          >
-            Read More →
-          </span>
-        )}
-      </div>
+      {/* Review text */}
+      <p
+        style={{
+          fontSize: '0.9375rem',
+          color: AI.fg,
+          lineHeight: 1.7,
+          margin: 0,
+          display: '-webkit-box',
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+      >
+        "{review.text}"
+      </p>
+      {shouldTruncate && (
+        <span style={{ fontSize: '0.8125rem', color: AI.accent, fontWeight: 500 }}>
+          Read more
+        </span>
+      )}
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', borderTop: `1px solid ${AI.border}`, paddingTop: '16px', marginTop: 'auto' }}>
+      {/* Client */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          borderTop: `1px solid ${AI.border}`,
+          paddingTop: '14px',
+          marginTop: 'auto',
+        }}
+      >
         <div
           style={{
-            width: '36px',
-            height: '36px',
+            width: '32px',
+            height: '32px',
             borderRadius: '50%',
-            backgroundColor: AI.accentLight,
-            color: AI.accent,
+            backgroundColor: AI.subtle,
+            color: AI.muted,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '0.75rem',
-            fontWeight: 700,
+            fontSize: '0.8125rem',
+            fontWeight: 600,
             flexShrink: 0,
+            border: `1px solid ${AI.border}`,
           }}
         >
           {review.avatar}
         </div>
-        <div>
-          <div style={{ fontSize: '0.875rem', fontWeight: 600, color: AI.fg }}>{review.client}</div>
-          <div style={{ fontSize: '0.75rem', color: AI.muted }}>
-            {review.location} · {review.project} <span style={{ fontSize: '0.6875rem', color: AI.accent, fontWeight: 500 }}>({review.category})</span>
-          </div>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontSize: '0.875rem', fontWeight: 600, color: AI.fg, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{review.client}</div>
+          <div style={{ fontSize: '0.75rem', color: AI.muted }}>{review.location}</div>
         </div>
       </div>
     </motion.div>
@@ -132,81 +129,82 @@ export function AIFreelance() {
     <section className="section-pad" style={{ backgroundColor: AI.subtle }}>
       <div className="section-inner-padded">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
-          style={{ marginBottom: '56px' }}
+          transition={{ duration: 0.65 }}
+          style={{ marginBottom: '48px' }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
-            Freelance
-          </span>
           <h2
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
               fontWeight: 500,
               color: AI.fg,
-              marginTop: '12px',
-              marginBottom: '0',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.2,
+              margin: '0',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.15,
             }}
           >
-            Trusted by clients<br />
-            <em style={{ fontStyle: 'italic', fontWeight: 400 }}>around the world.</em>
+            Trusted by clients<br />around the world.
           </h2>
         </motion.div>
 
-        {/* Upwork profile card */}
+        {/* Upwork profile card — clean, no gradient avatar */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55 }}
+          className="freelance-card"
           style={{
             backgroundColor: AI.card,
             border: `1px solid ${AI.border}`,
-            borderRadius: '20px',
-            padding: '32px',
+            borderRadius: '16px',
+            padding: '28px 32px',
             marginBottom: '32px',
           }}
-          className="freelance-card"
         >
-          <div
-            style={{
-              width: '72px',
-              height: '72px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #14A800 0%, #1B7D0A 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              flexShrink: 0,
-            }}
-          >
-            Up
-          </div>
+          {/* Identity */}
           <div className="freelance-card-content" style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '1.125rem', fontWeight: 600, color: AI.fg }}>Ghanshyam G.</span>
-              <span style={{ padding: '2px 10px', borderRadius: '100px', backgroundColor: '#E8F8E2', color: '#14A800', fontSize: '0.75rem', fontWeight: 600, flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '1.0625rem', fontWeight: 600, color: AI.fg, letterSpacing: '-0.01em' }}>
+                Ghanshyam G.
+              </span>
+              <span
+                style={{
+                  padding: '1px 9px',
+                  borderRadius: '4px',
+                  backgroundColor: '#D1FAE5',
+                  color: '#065F46',
+                  fontSize: '0.6875rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.03em',
+                  textTransform: 'uppercase',
+                  flexShrink: 0,
+                }}
+              >
                 Top Rated
               </span>
             </div>
-            <p style={{ fontSize: '0.9375rem', color: AI.muted, margin: 0 }}>AI Engineer & ML Developer · Upwork Freelancer</p>
+            <p style={{ fontSize: '0.875rem', color: AI.muted, margin: 0 }}>
+              AI Engineer & ML Developer · Upwork
+            </p>
           </div>
+
+          {/* Stats */}
           <div className="freelance-stats">
             {STATS.map(s => (
-              <div key={s.label} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '1.375rem', fontWeight: 700, color: AI.fg, letterSpacing: '-0.02em' }}>{s.value}</div>
-                <div style={{ fontSize: '0.75rem', color: AI.muted, marginTop: '4px' }}>{s.label}</div>
+              <div key={s.label}>
+                <div style={{ fontSize: '1.25rem', fontWeight: 700, color: AI.fg, letterSpacing: '-0.025em', lineHeight: 1 }}>
+                  {s.value}
+                </div>
+                <div style={{ fontSize: '0.75rem', color: AI.muted, marginTop: '5px' }}>{s.label}</div>
               </div>
             ))}
           </div>
+
+          {/* CTA */}
           <a
             href="https://www.upwork.com/freelancers/~01043444993a97d448?mp_source=share"
             target="_blank"
@@ -216,8 +214,8 @@ export function AIFreelance() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '10px 20px',
-              borderRadius: '100px',
+              padding: '9px 18px',
+              borderRadius: '8px',
               backgroundColor: '#14A800',
               color: '#fff',
               textDecoration: 'none',
@@ -227,23 +225,19 @@ export function AIFreelance() {
               whiteSpace: 'nowrap',
             }}
           >
-            View Profile <ExternalLink size={14} />
+            View Profile <ExternalLink size={13} />
           </a>
         </motion.div>
       </div>
 
-      {/* Reviews scroll */}
+      {/* Reviews horizontal scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        style={{ position: 'relative' }}
+        transition={{ duration: 0.55, delay: 0.15 }}
       >
-        <div
-          ref={scrollRef}
-          className="freelance-review-scroll"
-        >
+        <div ref={scrollRef} className="freelance-review-scroll">
           {LOCAL_REVIEWS.map(r => (
             <ReviewCard key={r.id} review={r} onClick={() => setSelectedReview(r)} />
           ))}

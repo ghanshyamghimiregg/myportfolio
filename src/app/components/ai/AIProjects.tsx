@@ -15,11 +15,11 @@ function ProjectCard({ project, featured, onClick }: { project: LocalProject; fe
       onClick={onClick}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -3, borderColor: AI.accent }}
+      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
       style={{
         backgroundColor: AI.card,
-        borderRadius: '16px',
+        borderRadius: '14px',
         overflow: 'hidden',
         cursor: 'pointer',
         border: `1px solid ${AI.border}`,
@@ -76,24 +76,7 @@ function ProjectCard({ project, featured, onClick }: { project: LocalProject; fe
             />
           )
         })()}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)' }} />
-        <span
-          style={{
-            position: 'absolute',
-            top: '12px',
-            left: '12px',
-            padding: '4px 10px',
-            borderRadius: '100px',
-            backgroundColor: 'rgba(255,255,255,0.9)',
-            color: AI.fg,
-            fontSize: '0.6875rem',
-            fontWeight: 600,
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-          }}
-        >
-          {project.skills[0] || 'AI Project'}
-        </span>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%)' }} />
       </div>
 
       <div style={{ padding: featured ? '24px' : '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -136,8 +119,8 @@ function ProjectCard({ project, featured, onClick }: { project: LocalProject; fe
             <span
               key={t}
               style={{
-                padding: '3px 10px',
-                borderRadius: '100px',
+                padding: '3px 9px',
+                borderRadius: '4px',
                 backgroundColor: AI.subtle,
                 color: AI.muted,
                 fontSize: '0.75rem',
@@ -166,21 +149,17 @@ export function AIProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          style={{ marginBottom: '56px' }}
+          style={{ marginBottom: '48px' }}
         >
-          <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
-            Featured Work
-          </span>
           <h2
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
               fontWeight: 500,
               color: AI.fg,
-              marginTop: '12px',
-              marginBottom: '0',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.2,
+              margin: '0',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.15,
             }}
           >
             Projects that matter.

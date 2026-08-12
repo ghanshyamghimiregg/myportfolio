@@ -9,7 +9,30 @@ interface Props {
   onClose: () => void
 }
 
+/** Block wheel + touchmove on the background page without touching
+ *  body.style, so the scroll position is never disturbed. */
+function useScrollLock(active: boolean) {
+  useEffect(() => {
+    if (!active) return
+
+    const prevent = (e: Event) => {
+      const modal = document.querySelector('.review-modal-container')
+      if (modal && modal.contains(e.target as Node)) return
+      e.preventDefault()
+    }
+
+    document.addEventListener('wheel', prevent, { passive: false })
+    document.addEventListener('touchmove', prevent, { passive: false })
+
+    return () => {
+      document.removeEventListener('wheel', prevent)
+      document.removeEventListener('touchmove', prevent)
+    }
+  }, [active])
+}
+
 export function ReviewModal({ review, onClose }: Props) {
+  // Close on Escape
   useEffect(() => {
     if (!review) return
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
@@ -17,19 +40,13 @@ export function ReviewModal({ review, onClose }: Props) {
     return () => document.removeEventListener('keydown', handler)
   }, [review, onClose])
 
-  useEffect(() => {
-    if (review) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => { document.body.style.overflow = '' }
-  }, [review])
+  useScrollLock(!!review)
 
   return (
     <AnimatePresence>
       {review && (
         <>
+          {/* Backdrop */}
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
@@ -45,16 +62,19 @@ export function ReviewModal({ review, onClose }: Props) {
               WebkitBackdropFilter: 'blur(6px)',
             }}
           />
+
+          {/* Modal */}
           <motion.div
             key="modal"
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.97 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: 24, scale: 0.97 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="review-modal-container"
             role="dialog"
             aria-modal="true"
             aria-label={`Review by ${review.client}`}
+            onClick={e => e.stopPropagation()}
           >
             {/* Header */}
             <div
@@ -67,13 +87,13 @@ export function ReviewModal({ review, onClose }: Props) {
                 gap: '16px',
                 backgroundColor: AI.card,
                 borderRadius: '20px 20px 0 0',
+                position: 'sticky',
+                top: 0,
+                zIndex: 1,
               }}
             >
               <div style={{ minWidth: 0 }}>
-                <span style={{ fontSize: '0.75rem', color: AI.accent, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>
-                  Client Feedback
-                </span>
-                <h2 style={{ color: AI.fg, fontSize: '1.375rem', fontWeight: 600, margin: '4px 0 0', letterSpacing: '-0.02em' }}>
+                <h2 style={{ color: AI.fg, fontSize: '1.25rem', fontWeight: 600, margin: '0', letterSpacing: '-0.02em' }}>
                   {review.client}
                 </h2>
               </div>
@@ -103,7 +123,7 @@ export function ReviewModal({ review, onClose }: Props) {
               className="modal-body"
               style={{ display: 'flex', flexDirection: 'column', gap: '24px', backgroundColor: AI.card }}
             >
-              {/* Rating and Date */}
+              {/* Stars + date */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
                   {Array.from({ length: 5 }).map((_, i) => {
@@ -130,14 +150,12 @@ export function ReviewModal({ review, onClose }: Props) {
                 <span style={{ fontSize: '0.875rem', color: AI.muted }}>{review.date}</span>
               </div>
 
-              {/* Review Text */}
-              <div>
-                <p style={{ fontSize: '1.0625rem', color: AI.fg, lineHeight: 1.8, fontStyle: 'italic', margin: 0 }}>
-                  "{review.text}"
-                </p>
-              </div>
+              {/* Review text */}
+              <p style={{ fontSize: '1.0625rem', color: AI.fg, lineHeight: 1.8, fontStyle: 'italic', margin: 0 }}>
+                "{review.text}"
+              </p>
 
-              {/* Client Info & Project Details */}
+              {/* Client info */}
               <div style={{ borderTop: `1px solid ${AI.border}`, paddingTop: '20px', display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <div
                   style={{

@@ -1,38 +1,38 @@
 import { motion } from 'motion/react'
 import { AI } from '../../constants/colors'
 
-const skills = ['Machine Learning', 'Computer Vision', 'OCR Systems', 'NLP', 'Python', 'TensorFlow', 'OpenCV']
+const INFO_ROWS = [
+  { label: 'University', value: 'Kathmandu University' },
+  { label: 'Degree', value: 'BTech Artificial Intelligence' },
+  { label: 'Batch', value: '2024–2028' },
+  { label: 'Location', value: 'Nepal' },
+]
 
 export function AIAbout() {
   return (
     <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
       <div className="section-inner">
         <div className="about-grid">
-          {/* Left: Label + Heading */}
+          {/* Left: Heading + info table */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
-                About
-              </span>
               <h2
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: 'clamp(2rem, 3.5vw, 3rem)',
+                  fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
                   fontWeight: 500,
                   lineHeight: 1.15,
-                  letterSpacing: '-0.02em',
+                  letterSpacing: '-0.025em',
                   color: AI.fg,
-                  marginTop: '16px',
-                  marginBottom: '0',
+                  margin: '0',
                 }}
               >
-                Building AI that<br />
-                <em style={{ fontStyle: 'italic', fontWeight: 400 }}>genuinely helps people.</em>
+                Building AI that genuinely helps people.
               </h2>
             </motion.div>
 
@@ -40,84 +40,58 @@ export function AIAbout() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', gap: '8px' }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              style={{ marginTop: '40px' }}
             >
-              {[
-                { label: 'University', value: 'Kathmandu University' },
-                { label: 'Degree', value: 'BTech Artificial Intelligence' },
-                { label: 'Batch', value: '2024–2028' },
-                { label: 'Location', value: 'Nepal' },
-              ].map(item => (
+              {INFO_ROWS.map((item, i) => (
                 <div
                   key={item.label}
-                  style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: `1px solid ${AI.border}` }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'baseline',
+                    padding: '11px 0',
+                    borderBottom: `1px solid ${AI.border}`,
+                    gap: '16px',
+                  }}
                 >
-                  <span style={{ fontSize: '0.875rem', color: AI.muted }}>{item.label}</span>
-                  <span style={{ fontSize: '0.875rem', color: AI.fg, fontWeight: 500 }}>{item.value}</span>
+                  <span style={{ fontSize: '0.8125rem', color: AI.muted, flexShrink: 0 }}>{item.label}</span>
+                  <span style={{ fontSize: '0.9375rem', color: AI.fg, fontWeight: 500, textAlign: 'right' }}>{item.value}</span>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: Bio + Skills */}
-          <div className="about-right-col" style={{ paddingTop: '55px' }}>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          {/* Right: Bio */}
+          <motion.div
+            className="about-right-col"
+            style={{ paddingTop: '8px' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+          >
+            <p
+              style={{
+                fontSize: '1.125rem',
+                lineHeight: 1.75,
+                color: AI.fg,
+                margin: '0 0 20px',
+              }}
             >
-              <p
-                style={{
-                  fontSize: '1.125rem',
-                  lineHeight: 1.8,
-                  color: AI.fg,
-                  marginBottom: '24px',
-                  marginTop: 0,
-                }}
-              >
-                Hi, I'm Ghanshyam Ghimire, a BTech Artificial Intelligence student at Kathmandu University.
-              </p>
-              <p
-                style={{
-                  fontSize: '1.0625rem',
-                  lineHeight: 1.8,
-                  color: AI.muted,
-                  marginBottom: '40px',
-                  marginTop: 0,
-                }}
-              >
-                I specialize in machine learning, computer vision, OCR systems, NLP, and automation.
-              </p>
-
-              <div>
-                <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: AI.muted, fontWeight: 500 }}>
-                  Specializations
-                </span>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
-                  {skills.map(skill => (
-                    <motion.span
-                      key={skill}
-                      whileHover={{ scale: 1.06, backgroundColor: AI.accentLight, color: AI.accent }}
-                      style={{
-                        padding: '6px 14px',
-                        borderRadius: '100px',
-                        backgroundColor: AI.subtle,
-                        color: AI.fg,
-                        fontSize: '0.8125rem',
-                        fontWeight: 500,
-                        cursor: 'default',
-                        transition: 'all 0.2s ease',
-                      }}
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              I'm a BTech Artificial Intelligence student at Kathmandu University, working on machine learning systems that solve real problems.
+            </p>
+            <p
+              style={{
+                fontSize: '1rem',
+                lineHeight: 1.8,
+                color: AI.muted,
+                margin: '0 0 0',
+              }}
+            >
+              I specialize in computer vision, OCR, NLP, and automation — and when I'm not training models, I'm writing songs. Both sides of my work are about the same thing: translating something felt into something real.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

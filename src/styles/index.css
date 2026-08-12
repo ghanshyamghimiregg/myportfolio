@@ -2,3 +2,45 @@
 @import './tailwind.css';
 @import './theme.css';
 @import './responsive.css';
+
+/* ============================================================
+   CUSTOM SCROLLBAR — matches dual-mode palette
+   ============================================================ */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ai-border) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ai-border);
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ai-muted);
+}
+
+/* Modal scrollbars — slightly more visible */
+.modal-container::-webkit-scrollbar,
+.review-modal-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb,
+.review-modal-container::-webkit-scrollbar-thumb {
+  background: var(--ai-border);
+  border-radius: 100px;
+}

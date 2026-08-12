@@ -105,7 +105,6 @@ export function GuitarToggle({ onSwitch }: Props) {
         padding: '16px',
         margin: 0,
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
@@ -175,21 +174,6 @@ export function GuitarToggle({ onSwitch }: Props) {
           <line x1="60" y1="46" x2="60" y2="122" stroke={strokeColor} strokeWidth="1.4" />
         </svg>
       </motion.div>
-      <motion.span
-        animate={{ opacity: [0.3, 0.6, 0.3], y: [0, -4, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        style={{
-          marginTop: '12px',
-          fontSize: '0.65rem',
-          fontWeight: 500,
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: strokeColor,
-          pointerEvents: 'none',
-        }}
-      >
-        Click to switch
-      </motion.span>
     </button>
   )
 }

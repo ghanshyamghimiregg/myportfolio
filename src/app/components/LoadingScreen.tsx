@@ -7,7 +7,7 @@ interface Props {
   onComplete: () => void
 }
 
-const MIN_DISPLAY_MS = 2400
+const MIN_DISPLAY_MS = 800
 
 function preloadImage(src: string): Promise<void> {
   return new Promise((resolve) => {

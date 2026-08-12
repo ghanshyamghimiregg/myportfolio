@@ -101,32 +101,22 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
           height: BG_HEIGHT,
           borderRadius: isAI ? AI_BG_RADIUS : MUSIC_BG_RADIUS,
           background: isAI
-            ? `linear-gradient(145deg, ${c.accentLight} 0%, #DBEAFE 50%, ${c.subtle} 100%)`
-            : 'linear-gradient(165deg, #3D2518 0%, #5C3A22 38%, #8B5A2B 72%, #C4843A 100%)',
-          border: isAI ? `1px solid ${c.border}` : '1px solid rgba(217, 207, 186, 0.45)',
+            ? `linear-gradient(150deg, ${c.accentLight} 0%, #EFF6FF 60%, ${c.subtle} 100%)`
+            : 'linear-gradient(160deg, #3D2518 0%, #5C3A22 45%, #8B5A2B 100%)',
+          border: isAI ? `1px solid ${c.border}` : '1px solid rgba(217, 207, 186, 0.35)',
           boxShadow: isAI
             ? hovered
-              ? '0 28px 56px rgba(37, 99, 235, 0.14)'
-              : '0 20px 50px rgba(37, 99, 235, 0.08)'
+              ? '0 24px 48px rgba(37, 99, 235, 0.12)'
+              : '0 16px 40px rgba(37, 99, 235, 0.07)'
             : hovered
-              ? '0 28px 64px rgba(44, 22, 16, 0.22), inset 0 1px 0 rgba(255, 248, 238, 0.15)'
-              : '0 24px 60px rgba(44, 22, 16, 0.18), inset 0 1px 0 rgba(255, 248, 238, 0.15)',
+              ? '0 24px 56px rgba(44, 22, 16, 0.20)'
+              : '0 20px 48px rgba(44, 22, 16, 0.15)',
           zIndex: 1,
           overflow: 'hidden',
         }}
-      >
-        {!isAI && (
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'radial-gradient(ellipse 90% 80% at 72% 18%, rgba(251, 191, 36, 0.55) 0%, rgba(217, 119, 6, 0.2) 35%, transparent 68%)',
-            }}
-          />
-        )}
-      </motion.div>
+      />
 
-      {/* Subject — bottom flush with bg, ~12% taller for top pop-out */}
+      {/* Subject */}
       <div
         style={{
           position: 'absolute',

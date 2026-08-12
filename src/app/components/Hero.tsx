@@ -18,7 +18,7 @@ interface Props {
 interface MagneticPos { x: number; y: number }
 
 const AI_SOCIALS = [
-  { name: 'GitHub', color: 'var(--ai-fg)', shadowColor: 'rgba(128, 128, 128, 0.25)', href: 'https://github.com/ghanshyamghimiregg', icon: GithubIcon },
+  { name: 'GitHub', color: 'var(--ai-fg)', href: 'https://github.com/ghanshyamghimiregg', icon: GithubIcon },
   { name: 'Instagram', color: '#E1306C', href: 'https://www.instagram.com/ghanshyamghimiremusic/', icon: InstagramIcon },
   { name: 'Facebook', color: '#1877F2', href: 'https://www.facebook.com/ghanshyamghimiregg', icon: FacebookIcon },
   { name: 'LinkedIn', color: '#0A66C2', href: 'https://www.linkedin.com/in/ghanshyam-ghimire-441854213/', icon: LinkedinIcon },
@@ -29,7 +29,7 @@ function SocialIconButton({
   borderColor,
   backgroundColor,
 }: {
-  social: { name: string; color: string; shadowColor?: string; href: string; icon: LucideIcon }
+  social: { name: string; color: string; href: string; icon: LucideIcon }
   borderColor: string
   backgroundColor: string
 }) {
@@ -55,16 +55,13 @@ function SocialIconButton({
         backgroundColor,
         color: social.color,
         textDecoration: 'none',
-        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-        boxShadow: '0 10px 24px rgba(15, 23, 42, 0.06)',
+        transition: 'border-color 0.18s ease',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = social.color
-        e.currentTarget.style.boxShadow = `0 12px 28px ${social.shadowColor || social.color + '22'}`
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = borderColor
-        e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.06)'
       }}
     >
       <Icon size={18} strokeWidth={1.9} />
@@ -160,8 +157,8 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                   fontWeight: 600,
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.02em',
+                  lineHeight: 1.08,
+                  letterSpacing: '-0.025em',
                   margin: 0,
                 }}
               >

@@ -81,11 +81,16 @@ export default function App() {
 
       <footer style={{ borderTop: `1px solid ${c.border}`, transition: 'border-color 0.9s ease' }}>
         <div className="footer-inner">
-          <span style={{ color: c.muted, fontSize: '0.875rem', transition: 'color 0.9s ease' }}>
-            © 2026 Ghanshyam Ghimire
-          </span>
-          <span style={{ color: c.muted, fontSize: '0.875rem', transition: 'color 0.9s ease' }}>
-            {mode === 'ai' ? 'AI Engineer' : 'Musician'} · Nepal
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+            <span style={{ color: c.fg, fontSize: '0.9375rem', fontWeight: 500, letterSpacing: '-0.01em', transition: 'color 0.9s ease' }}>
+              Ghanshyam Ghimire
+            </span>
+            <span style={{ color: c.muted, fontSize: '0.8125rem', transition: 'color 0.9s ease' }}>
+              {mode === 'ai' ? 'AI Engineer · Kathmandu University' : 'Singer-Songwriter · Nepal'}
+            </span>
+          </div>
+          <span style={{ color: c.muted, fontSize: '0.8125rem', transition: 'color 0.9s ease' }}>
+            © 2026
           </span>
         </div>
       </footer>

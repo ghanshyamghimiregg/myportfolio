@@ -58,25 +58,21 @@ export function AISkills() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
           className="skills-header"
-          style={{ marginBottom: '56px' }}
+          style={{ marginBottom: '48px' }}
         >
           <div>
-            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: AI.accent, fontWeight: 500 }}>
-              Skills
-            </span>
             <h2
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
                 fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
                 fontWeight: 500,
                 color: AI.fg,
-                marginTop: '12px',
-                marginBottom: '0',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2,
+                margin: '0',
+                letterSpacing: '-0.025em',
+                lineHeight: 1.15,
               }}
             >
-              Hover / tap to explore.
+              Skills & tools.
             </h2>
           </div>
         </motion.div>
@@ -95,7 +91,7 @@ export function AISkills() {
               whileHover={{ y: -4 }}
               style={{
                 padding: '28px',
-                borderRadius: '16px',
+                borderRadius: '14px',
                 border: `1px solid ${activeCluster === cluster.category ? cluster.color : AI.border}`,
                 backgroundColor: activeCluster === cluster.category ? `${cluster.color}12` : AI.card,
                 cursor: 'pointer',
@@ -109,19 +105,19 @@ export function AISkills() {
                 </h3>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
                 {cluster.skills.map(skill => (
                   <motion.span
                     key={skill}
-                    whileHover={{ scale: 1.08 }}
+                    whileHover={{ scale: 1.04 }}
                     style={{
-                      padding: '6px 14px',
-                      borderRadius: '100px',
+                      padding: '5px 11px',
+                      borderRadius: '4px',
                       backgroundColor: activeCluster === cluster.category ? AI.card : AI.subtle,
                       color: activeCluster === cluster.category ? cluster.color : AI.fg,
                       fontSize: '0.875rem',
                       fontWeight: 500,
-                      border: activeCluster === cluster.category ? `1px solid ${cluster.color}30` : 'none',
+                      border: activeCluster === cluster.category ? `1px solid ${cluster.color}30` : '1px solid transparent',
                       transition: 'all 0.2s ease',
                     }}
                   >
@@ -134,18 +130,15 @@ export function AISkills() {
                 animate={{ opacity: activeCluster === cluster.category ? 1 : 0, height: activeCluster === cluster.category ? 'auto' : 0 }}
                 style={{ overflow: 'hidden' }}
               >
-                <div style={{ borderTop: `1px solid ${cluster.color}20`, paddingTop: '16px' }}>
-                  <span style={{ fontSize: '0.75rem', color: cluster.color, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                    Used in
-                  </span>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '8px' }}>
+                <div style={{ borderTop: `1px solid ${cluster.color}15`, paddingTop: '14px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {cluster.relatedProjects.map(p => (
                       <span
                         key={p}
                         style={{
-                          padding: '3px 10px',
-                          borderRadius: '100px',
-                          backgroundColor: `${cluster.color}15`,
+                          padding: '3px 9px',
+                          borderRadius: '4px',
+                          backgroundColor: `${cluster.color}12`,
                           color: cluster.color,
                           fontSize: '0.8125rem',
                         }}

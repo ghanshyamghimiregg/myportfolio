@@ -111,23 +111,18 @@ export function MusicBehindSongs() {
           style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px' }}
         >
           <div>
-            <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: MUSIC.accent, fontWeight: 500 }}>
-              Behind The Songs
-            </span>
             <h2
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
                 fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
                 fontWeight: 500,
                 color: MUSIC.fg,
-                marginTop: '12px',
-                marginBottom: '0',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2,
+                margin: '0',
+                letterSpacing: '-0.025em',
+                lineHeight: 1.15,
               }}
             >
-              Every song has a<br />
-              <em style={{ fontStyle: 'italic', fontWeight: 400 }}>chapter before it.</em>
+              Every song has a<br />story behind it.
             </h2>
           </div>
 
@@ -222,60 +217,41 @@ export function MusicBehindSongs() {
               className="music-behind-article"
             >
               {/* Image */}
-              <div style={{ position: 'relative', paddingTop: '20px' }}>
-                <div style={{ borderRadius: '20px', overflow: 'hidden', aspectRatio: '1/1', boxShadow: '0 16px 48px rgba(44,22,16,0.15)' }}>
+              <div>
+                <div style={{ borderRadius: '16px', overflow: 'hidden', aspectRatio: '1/1', position: 'relative' }}>
                   <img
                     src={story.image}
                     alt={`${story.song} album art`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
+                  {/* Latest indicator — inside the image, top-right corner */}
+                  {story.isLatest && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        backgroundColor: MUSIC.accent,
+                        color: '#fff',
+                        padding: '3px 8px',
+                        borderRadius: '4px',
+                        fontSize: '0.625rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.05em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      New
+                    </div>
+                  )}
                 </div>
-                {/* Chapter label */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '-16px',
-                    left: '24px',
-                    backgroundColor: MUSIC.accent,
-                    color: '#fff',
-                    padding: '6px 16px',
-                    borderRadius: '100px',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                  }}
-                >
-                  Chapter {story.number}
-                </div>
-                {/* Latest badge for Aabhaas */}
-                {story.isLatest && (
-                  <motion.div
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                    style={{
-                      position: 'absolute',
-                      bottom: '-12px',
-                      right: '24px',
-                      background: 'linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%)',
-                      color: '#fff',
-                      padding: '6px 16px',
-                      borderRadius: '100px',
-                      fontSize: '0.6875rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      boxShadow: '0 4px 12px rgba(180, 83, 9, 0.35)',
-                    }}
-                  >
-                    ✦ Latest Release
-                  </motion.div>
-                )}
               </div>
 
               {/* Text */}
               <div>
-                <div style={{ marginBottom: '24px' }}>
-                  <span style={{ fontSize: '0.75rem', color: MUSIC.muted, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                    {story.year} · {story.song}
+                <div style={{ marginBottom: '20px' }}>
+                  <span style={{ fontSize: '0.75rem', color: MUSIC.accent, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                    Chapter {story.number} · {story.year}
                   </span>
                   <h3
                     style={{
@@ -284,7 +260,7 @@ export function MusicBehindSongs() {
                       fontWeight: 500,
                       color: MUSIC.fg,
                       margin: '8px 0 0',
-                      letterSpacing: '-0.02em',
+                      letterSpacing: '-0.025em',
                       lineHeight: 1.2,
                     }}
                   >
@@ -306,12 +282,6 @@ export function MusicBehindSongs() {
                   </p>
                 ))}
 
-                <div style={{ display: 'flex', gap: '24px', marginTop: '32px', paddingTop: '24px', borderTop: `1px solid ${MUSIC.border}` }}>
-                  <div>
-                    <span style={{ fontSize: '0.6875rem', color: MUSIC.muted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Emotion</span>
-                    <p style={{ fontSize: '0.9375rem', color: MUSIC.accent, fontWeight: 600, margin: '4px 0 0' }}>{story.emotion}</p>
-                  </div>
-                </div>
               </div>
             </motion.article>
           </AnimatePresence>

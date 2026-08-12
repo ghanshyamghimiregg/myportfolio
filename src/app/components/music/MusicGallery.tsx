@@ -86,7 +86,7 @@ export function MusicGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          style={{ marginBottom: '56px', textAlign: 'center' }}
+          style={{ marginBottom: '48px', textAlign: 'center' }}
         >
           <h2
             style={{
@@ -94,10 +94,9 @@ export function MusicGallery() {
               fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
               fontWeight: 500,
               color: MUSIC.fg,
-              marginTop: '0',
-              marginBottom: '12px',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.2,
+              margin: '0',
+              letterSpacing: '-0.025em',
+              lineHeight: 1.15,
             }}
           >
             On Stage<br />
