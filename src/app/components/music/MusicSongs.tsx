@@ -127,6 +127,9 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
         overflow: 'hidden',
         position: 'relative',
         transition: 'border-color 0.2s',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       {/* New badge */}
@@ -199,16 +202,15 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
       </div>
 
       {/* Info row */}
-      <div style={{ padding: '14px 16px 16px' }}>
+      <div style={{ padding: '14px 16px 16px', display: 'flex', flexDirection: 'column', flex: 1 }}>
         {/* Title + year */}
-        <div style={{ marginBottom: '12px' }}>
+        <div style={{ flex: 1 }}>
           <h3 style={{
             fontSize: '1rem',
             fontWeight: 600,
             color: MUSIC.fg,
             margin: '0 0 2px',
             letterSpacing: '-0.01em',
-            /* truncate long titles */
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
@@ -218,8 +220,8 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
           <span style={{ fontSize: '0.8125rem', color: MUSIC.muted }}>{song.year}</span>
         </div>
 
-        {/* Platform icon buttons — no text, just logos */}
-        <div style={{ display: 'flex', gap: '6px' }}>
+        {/* Platform icon buttons */}
+        <div style={{ display: 'flex', gap: '6px', marginTop: '12px' }}>
           {PLATFORM_ICONS.map(({ key, Icon, color, label }) => (
             <motion.a
               key={key}
@@ -333,6 +335,7 @@ export function MusicSongs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              style={{ height: '100%' }}
             >
               <SongCard
                 song={song}
