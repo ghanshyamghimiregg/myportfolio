@@ -714,24 +714,23 @@ img:not(.portrait-img), video {
 .music-songs-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
   gap: 20px;
-  align-items: stretch;
 }
 
 @media (max-width: 1024px) {
   .music-songs-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
-/* 480px and below: tighten gap, use fluid padding via the section container */
 @media (max-width: 480px) {
   .music-songs-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
-  /* Also reduce section horizontal padding so cards have more room */
   .section-pad-x {
     padding-left: 12px;
     padding-right: 12px;

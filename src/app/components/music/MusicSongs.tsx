@@ -127,9 +127,9 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
         overflow: 'hidden',
         position: 'relative',
         transition: 'border-color 0.2s',
-        height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        height: '100%',
       }}
     >
       {/* New badge */}
@@ -211,9 +211,12 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
             color: MUSIC.fg,
             margin: '0 0 2px',
             letterSpacing: '-0.01em',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
+            lineHeight: 1.3,
+            minHeight: '2.6em',
           }}>
             {song.title}
           </h3>
@@ -335,7 +338,7 @@ export function MusicSongs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              style={{ height: '100%' }}
+              style={{ display: 'contents' }}
             >
               <SongCard
                 song={song}
