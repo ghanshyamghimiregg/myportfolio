@@ -57,7 +57,7 @@ function ProjectCard({ project, featured, onClick }: { project: LocalProject; fe
           return (
             <motion.img
               src={project.thumbnail}
-              alt={project.title}
+              alt={`${project.title} — AI project by Ghanshyam Ghimire`}
               animate={{ scale: hovered ? hoverScale : baseScale }}
               transition={{ duration: 0.5 }}
               style={{
@@ -142,7 +142,7 @@ export function AIProjects() {
   const others = LOCAL_PROJECTS.filter(p => p.id !== verifAI.id)
 
   return (
-    <section id="projects" className="section-pad section-pad-x" style={{ backgroundColor: AI.subtle }}>
+    <section id="projects" className="section-pad section-pad-x" style={{ backgroundColor: AI.subtle }} aria-label="AI projects by Ghanshyam Ghimire">
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

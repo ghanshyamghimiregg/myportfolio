@@ -1,1 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+/*
+ * Fonts are loaded via <link> in index.html for non-render-blocking delivery.
+ * The @import below is intentionally removed — the HTML preload handles it.
+ * This file is kept for documentation and fallback purposes.
+ *
+ * Fonts in use:
+ *   - Inter (400, 500, 600) — UI body font
+ *   - Playfair Display (400, 500, 600, italic variants) — editorial headings
+ */

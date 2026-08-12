@@ -50,7 +50,7 @@ export function AISkills() {
   const [activeCluster, setActiveCluster] = useState<string | null>(null)
 
   return (
-    <section className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }} aria-label="Skills and technical expertise of Ghanshyam Ghimire">
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

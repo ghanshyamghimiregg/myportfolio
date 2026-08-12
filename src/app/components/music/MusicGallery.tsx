@@ -10,21 +10,18 @@ import { ImageWithFallback } from '../figma/ImageWithFallback'
  * - square: roughly equal
  */
 const PHOTOS = [
-  // Row 1: landscape, portrait, portrait, square
-  { id: 'g1', src: '/musicphotos/0524.jpg', alt: 'Live performance' },
-  { id: 'g2', src: '/musicphotos/0625 (1)(1).jpg', alt: 'Performance moment' },
-  { id: 'g3', src: '/musicphotos/621380075_18079924583211383_6665212664267307199_n.jpg', alt: 'Music moment' },
-  { id: 'g4', src: '/musicphotos/633865744_18378865819080876_5430391603270443274_n.jpg', alt: 'Live music' },
-  // Row 2
-  { id: 'g5', src: '/musicphotos/0625 (1)(2).jpg', alt: 'Stage performance' },
-  { id: 'g6', src: '/musicphotos/0613.jpg', alt: 'On stage' },
-  { id: 'g7', src: '/musicphotos/0625 (1).jpg', alt: 'Acoustic session' },
-  { id: 'g8', src: '/musicphotos/648994522_18069324248268344_7263154056669889858_n.jpg', alt: 'Concert' },
-  // Row 3
-  { id: 'g9', src: '/musicphotos/650917621_18093282259860295_8909871446461575516_n.jpg', alt: 'Performance' },
-  { id: 'g10', src: '/musicphotos/724072731_1360426932738710_3054117027992186017_n.jpg', alt: 'Stage moment' },
-  { id: 'g11', src: '/musicphotos/625038055_18170918398391095_6324780337854495417_n (1).jpg', alt: 'Music session' },
-  { id: 'g12', src: '/musicphotos/SCR-20260625-eolv.jpeg', alt: 'Behind the scenes' },
+  { id: 'g1',  src: '/musicphotos/0524.jpg',            alt: 'Ghanshyam Ghimire performing live on stage' },
+  { id: 'g2',  src: '/musicphotos/0625 (1)(1).jpg',     alt: 'Ghanshyam Ghimire at a live music performance' },
+  { id: 'g3',  src: '/musicphotos/621380075_18079924583211383_6665212664267307199_n.jpg', alt: 'Ghanshyam Ghimire performing music live' },
+  { id: 'g4',  src: '/musicphotos/633865744_18378865819080876_5430391603270443274_n.jpg', alt: 'Ghanshyam Ghimire on stage with guitar' },
+  { id: 'g5',  src: '/musicphotos/0625 (1)(2).jpg',     alt: 'Ghanshyam Ghimire stage performance moment' },
+  { id: 'g6',  src: '/musicphotos/0613.jpg',             alt: 'Ghanshyam Ghimire performing on stage' },
+  { id: 'g7',  src: '/musicphotos/0625 (1).jpg',        alt: 'Ghanshyam Ghimire acoustic session' },
+  { id: 'g8',  src: '/musicphotos/648994522_18069324248268344_7263154056669889858_n.jpg', alt: 'Ghanshyam Ghimire live concert performance' },
+  { id: 'g9',  src: '/musicphotos/650917621_18093282259860295_8909871446461575516_n.jpg', alt: 'Ghanshyam Ghimire performing at a music event' },
+  { id: 'g10', src: '/musicphotos/724072731_1360426932738710_3054117027992186017_n.jpg',  alt: 'Ghanshyam Ghimire stage moment' },
+  { id: 'g11', src: '/musicphotos/625038055_18170918398391095_6324780337854495417_n (1).jpg', alt: 'Ghanshyam Ghimire singing live' },
+  { id: 'g12', src: '/musicphotos/SCR-20260625-eolv.jpeg', alt: 'Ghanshyam Ghimire behind the scenes at a music event' },
 ]
 
 function CollagePhoto({ photo, index, rotation }: { photo: typeof PHOTOS[0]; index: number; rotation: number }) {
@@ -62,6 +59,7 @@ function CollagePhoto({ photo, index, rotation }: { photo: typeof PHOTOS[0]; ind
             src={photo.src}
             alt={photo.alt}
             loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: 'auto',
@@ -79,7 +77,7 @@ export function MusicGallery() {
   const rotations = [-3, 2, -2, 4, 3, -4, 2, -3, -2, 3, -4, 2]
 
   return (
-    <section id="gallery" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }}>
+    <section id="gallery" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }} aria-label="Ghanshyam Ghimire on stage — performance photos">
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

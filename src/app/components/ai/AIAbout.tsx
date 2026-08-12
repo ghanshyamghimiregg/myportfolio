@@ -10,7 +10,7 @@ const INFO_ROWS = [
 
 export function AIAbout() {
   return (
-    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
+    <section id="about" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }} aria-label="About Ghanshyam Ghimire">
       <div className="section-inner">
         <div className="about-grid">
           {/* Left: Heading + info table */}

@@ -155,7 +155,7 @@ function SongCard({ song, currentlyPlaying, onPlay, onPause }: {
       <div style={{ position: 'relative', paddingTop: '100%', overflow: 'hidden' }}>
         <motion.img
           src={song.cover}
-          alt={`${song.title} album art`}
+          alt={`${song.title} by Ghanshyam Ghimire — album cover`}
           animate={{ scale: hovered ? 1.06 : 1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
@@ -301,7 +301,7 @@ export function MusicSongs() {
   }
 
   return (
-    <section id="songs" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }}>
+    <section id="songs" className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.subtle }} aria-label="Original songs by Ghanshyam Ghimire">
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

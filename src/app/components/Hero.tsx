@@ -128,7 +128,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
   const isAI = mode === 'ai'
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" aria-label="Introduction — Ghanshyam Ghimire">
       <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
         <div className="hero-grid">
           {/* Left: Text content */}
@@ -293,7 +293,7 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
                 <FloatingPortrait
                   mode={mode}
                   src={isAI ? aiPortrait : musicPortrait}
-                  alt="Ghanshyam Ghimire"
+                  alt={isAI ? "Ghanshyam Ghimire — AI engineering student, Nepal" : "Ghanshyam Ghimire — singer-songwriter, Nepal"}
                 />
               </motion.div>
             </AnimatePresence>

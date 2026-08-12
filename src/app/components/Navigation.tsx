@@ -25,6 +25,41 @@ export function Navigation({ mode, onToggle }: Props) {
 
   return (
     <>
+      {/* Skip to main content — keyboard accessibility + crawlability */}
+      <a
+        href="#main-content"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          top: 'auto',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+        }}
+        onFocus={e => {
+          e.currentTarget.style.left = '16px'
+          e.currentTarget.style.top = '16px'
+          e.currentTarget.style.width = 'auto'
+          e.currentTarget.style.height = 'auto'
+          e.currentTarget.style.zIndex = '9999'
+          e.currentTarget.style.padding = '8px 16px'
+          e.currentTarget.style.backgroundColor = c.card
+          e.currentTarget.style.color = c.fg
+          e.currentTarget.style.borderRadius = '8px'
+          e.currentTarget.style.textDecoration = 'none'
+          e.currentTarget.style.fontFamily = 'inherit'
+          e.currentTarget.style.fontSize = '0.875rem'
+          e.currentTarget.style.fontWeight = '500'
+        }}
+        onBlur={e => {
+          e.currentTarget.style.left = '-9999px'
+          e.currentTarget.style.width = '1px'
+          e.currentTarget.style.height = '1px'
+        }}
+      >
+        Skip to main content
+      </a>
+
       {/* ── Top nav bar ─────────────────────────────────────────── */}
       <motion.nav
         role="navigation"

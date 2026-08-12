@@ -99,7 +99,7 @@ export function MusicBehindSongs() {
   }
 
   return (
-    <section className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.bg }}>
+    <section className="section-pad section-pad-x" style={{ backgroundColor: MUSIC.bg }} aria-label="Stories behind Ghanshyam Ghimire's original songs">
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Header with navigation */}
         <motion.div
@@ -221,7 +221,7 @@ export function MusicBehindSongs() {
                 <div style={{ borderRadius: '16px', overflow: 'hidden', aspectRatio: '1/1', position: 'relative' }}>
                   <img
                     src={story.image}
-                    alt={`${story.song} album art`}
+                    alt={`${story.song} — original song by Ghanshyam Ghimire, ${story.year}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                   {/* Latest indicator — inside the image, top-right corner */}

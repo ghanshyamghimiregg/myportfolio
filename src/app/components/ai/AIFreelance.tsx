@@ -126,7 +126,7 @@ export function AIFreelance() {
   const [selectedReview, setSelectedReview] = useState<LocalReview | null>(null)
 
   return (
-    <section className="section-pad" style={{ backgroundColor: AI.subtle }}>
+    <section className="section-pad" style={{ backgroundColor: AI.subtle }} aria-label="Freelance work and client reviews for Ghanshyam Ghimire">
       <div className="section-inner-padded">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

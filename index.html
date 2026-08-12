@@ -1,23 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/png" href="/logo.png">
-      <title>Ghanshyam Ghimire</title>
-      <meta name="description" content="Showcase your dual identity as an AI Engineer and Musician with a premium portfolio website that seamlessly transitions between innovative projects and heartfelt music." />
-      <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-      
-    </head>
+    <!-- ═══════════════════════════════════════════════
+         PRIMARY METADATA
+    ═══════════════════════════════════════════════ -->
+    <title>Ghanshyam Ghimire — AI Engineer & Musician from Nepal</title>
+    <meta name="description" content="Official portfolio of Ghanshyam Ghimire — AI engineering student at Kathmandu University, Nepal. Building machine learning systems, computer vision, and OCR tools. Also a singer-songwriter known for Gantabya, Aabhaas, and more." />
 
-    <body>
-      
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-      
-    </body>
-  </html>
-  
+    <!-- Canonical URL — replace with your actual deployed domain -->
+    <link rel="canonical" href="https://ghanshyamghimire.com.np/" />
+
+    <!-- ═══════════════════════════════════════════════
+         INDEXING — allow Google to crawl and index
+    ═══════════════════════════════════════════════ -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- ═══════════════════════════════════════════════
+         ENTITY / AUTHORSHIP SIGNALS
+    ═══════════════════════════════════════════════ -->
+    <meta name="author" content="Ghanshyam Ghimire" />
+    <meta name="keywords" content="Ghanshyam Ghimire, AI engineer Nepal, machine learning Nepal, Kathmandu University AI, Gantabya song, Nepali singer songwriter" />
+
+    <!-- ═══════════════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp, etc.)
+    ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Ghanshyam Ghimire" />
+    <meta property="og:title" content="Ghanshyam Ghimire — AI Engineer & Musician from Nepal" />
+    <meta property="og:description" content="AI engineering student at Kathmandu University and singer-songwriter from Nepal. Projects in computer vision, ML, OCR. Songs include Gantabya, Aabhaas, Sapana Ko Udaan." />
+    <meta property="og:url" content="https://ghanshyamghimire.com.np/" />
+    <meta property="og:image" content="https://ghanshyamghimire.com.np/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ghanshyam Ghimire — AI Engineer and Musician from Nepal" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Ghanshyam" />
+    <meta property="profile:last_name" content="Ghimire" />
+    <meta property="profile:username" content="ghanshyamghimire" />
+
+    <!-- ═══════════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ghanshyam Ghimire — AI Engineer & Musician from Nepal" />
+    <meta name="twitter:description" content="AI engineering student at Kathmandu University and singer-songwriter from Nepal. Projects in computer vision, ML, OCR. Songs include Gantabya and Aabhaas." />
+    <meta name="twitter:image" content="https://ghanshyamghimire.com.np/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Ghanshyam Ghimire — AI Engineer and Musician from Nepal" />
+
+    <!-- ═══════════════════════════════════════════════
+         FAVICON & ICONS
+    ═══════════════════════════════════════════════ -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="theme-color" content="#F7F6F3" />
+
+    <!-- ═══════════════════════════════════════════════
+         GOOGLE SEARCH CONSOLE VERIFICATION
+         Replace the content value with your actual GSC verification token
+    ═══════════════════════════════════════════════ -->
+    <!-- <meta name="google-site-verification" content="REPLACE_WITH_YOUR_GSC_VERIFICATION_TOKEN" /> -->
+
+    <!-- ═══════════════════════════════════════════════
+         PERFORMANCE — preconnect to critical origins
+    ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload fonts to avoid render-blocking -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" /></noscript>
+
+    <!-- ═══════════════════════════════════════════════
+         JSON-LD STRUCTURED DATA
+    ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://ghanshyamghimire.com.np/#person",
+          "name": "Ghanshyam Ghimire",
+          "url": "https://ghanshyamghimire.com.np/",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://ghanshyamghimire.com.np/og-image.jpg",
+            "width": 1200,
+            "height": 630,
+            "caption": "Ghanshyam Ghimire"
+          },
+          "description": "AI engineering student at Kathmandu University, Nepal. Machine learning engineer specializing in computer vision, OCR, and NLP. Also a singer-songwriter known for original Nepali songs including Gantabya and Aabhaas.",
+          "jobTitle": "AI Engineering Student & Musician",
+          "nationality": {
+            "@type": "Country",
+            "name": "Nepal"
+          },
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Kathmandu University",
+            "url": "https://ku.edu.np"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Kathmandu University"
+          },
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Computer Vision",
+            "Natural Language Processing",
+            "OCR Systems",
+            "Python",
+            "TensorFlow",
+            "PyTorch",
+            "Music",
+            "Singer-Songwriter",
+            "Nepali Folk Music"
+          ],
+          "sameAs": [
+            "https://github.com/ghanshyamghimiregg",
+            "https://www.linkedin.com/in/ghanshyam-ghimire-441854213/",
+            "https://www.instagram.com/ghanshyamghimiremusic/",
+            "https://youtube.com/@ghanshyamghimiremusic/",
+            "https://open.spotify.com/artist/1iSVIYJByt3Gp3j6BQqaEH",
+            "https://music.apple.com/np/artist/ghanshyam-ghimire/1752446129",
+            "https://www.tiktok.com/@ghanshyamghimiremusic",
+            "https://www.facebook.com/ghanshyamghimiregg",
+            "https://www.upwork.com/freelancers/~01043444993a97d448"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ghanshyamghimire.com.np/#website",
+          "url": "https://ghanshyamghimire.com.np/",
+          "name": "Ghanshyam Ghimire",
+          "description": "Official portfolio of Ghanshyam Ghimire — AI engineer and musician from Nepal.",
+          "author": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ghanshyamghimire.com.np/"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://ghanshyamghimire.com.np/#profilepage",
+          "url": "https://ghanshyamghimire.com.np/",
+          "name": "Ghanshyam Ghimire — Official Portfolio",
+          "description": "Official portfolio of Ghanshyam Ghimire, AI engineering student at Kathmandu University, Nepal and singer-songwriter.",
+          "isPartOf": { "@id": "https://ghanshyamghimire.com.np/#website" },
+          "about": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "author": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "dateModified": "2026-08-12",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "MusicRecording",
+          "@id": "https://ghanshyamghimire.com.np/#gantabya",
+          "name": "Gantabya",
+          "description": "Gantabya is a Nepali indie pop folk song by Ghanshyam Ghimire about love and finding a partner to journey through life with. Released in 2024.",
+          "byArtist": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "datePublished": "2024",
+          "inLanguage": "ne",
+          "url": "https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS",
+          "sameAs": [
+            "https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS",
+            "https://youtu.be/yd7lsKnmB-Q",
+            "https://music.apple.com/np/song/gantabya/1752446130"
+          ]
+        },
+        {
+          "@type": "MusicRecording",
+          "@id": "https://ghanshyamghimire.com.np/#aabhaas",
+          "name": "Aabhaas",
+          "description": "Aabhaas is a 2026 Nepali indie pop folk song by Ghanshyam Ghimire about the gentle realization of falling in love.",
+          "byArtist": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "datePublished": "2026",
+          "inLanguage": "ne",
+          "url": "https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT",
+          "sameAs": [
+            "https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT",
+            "https://youtu.be/_Vc8b-n6-Xw",
+            "https://music.apple.com/np/song/aabhaas/6769536549"
+          ]
+        },
+        {
+          "@type": "MusicRecording",
+          "@id": "https://ghanshyamghimire.com.np/#sapana-ko-udaan",
+          "name": "Sapana Ko Udaan",
+          "description": "Sapana Ko Udaan is a 2025 Nepali song by Ghanshyam Ghimire about the dreams and struggles of Nepali youth.",
+          "byArtist": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "datePublished": "2025",
+          "inLanguage": "ne",
+          "sameAs": [
+            "https://open.spotify.com/track/2JZnTfQlMtOJHAdY4PccsL",
+            "https://youtu.be/sUzGfuGjWQw"
+          ]
+        },
+        {
+          "@type": "MusicRecording",
+          "@id": "https://ghanshyamghimire.com.np/#nabhaniyeka-sapana",
+          "name": "Nabhaniyeka Sapana",
+          "description": "Nabhaniyeka Sapana is a 2025 Nepali song by Ghanshyam Ghimire about unspoken love and a father's quiet sacrifices.",
+          "byArtist": { "@id": "https://ghanshyamghimire.com.np/#person" },
+          "datePublished": "2025",
+          "inLanguage": "ne",
+          "sameAs": [
+            "https://open.spotify.com/track/0Xk6qjuLqJxymXosbJZVh0",
+            "https://youtu.be/_cucMicv2jg"
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Critical above-fold style to avoid layout shift -->
+    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@ const HACKATHON_SNAPS = Object.entries(hackathonSnapModules)
   .map(([path, src], index) => ({
     id: `hackathon-snap-${index + 1}`,
     src,
-    alt: path.split('/').pop()?.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ') || `Hackathon snap ${index + 1}`,
+    alt: `Ghanshyam Ghimire at a hackathon event — photo ${index + 1}`,
   }))
 
 function CollageSnap({ snap, index }: { snap: typeof HACKATHON_SNAPS[number]; index: number }) {
@@ -57,6 +57,7 @@ function CollageSnap({ snap, index }: { snap: typeof HACKATHON_SNAPS[number]; in
             src={snap.src}
             alt={snap.alt}
             loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: 'auto',
@@ -73,7 +74,7 @@ export function AIHackathons() {
   const marqueeItems = [...HACKATHON_NAMES, ...HACKATHON_NAMES]
 
   return (
-    <section id="hackathons" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }}>
+    <section id="hackathons" className="section-pad section-pad-x" style={{ backgroundColor: AI.bg }} aria-label="Hackathon participation by Ghanshyam Ghimire">
       <div className="section-inner">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

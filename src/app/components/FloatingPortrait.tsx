@@ -155,6 +155,7 @@ export function FloatingPortrait({ mode, src, alt }: Props) {
             <img
               src={src}
               alt={alt}
+              fetchPriority="high"
               style={{
                 position: 'absolute',
                 bottom: 0,

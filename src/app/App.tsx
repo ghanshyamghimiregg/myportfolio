@@ -11,7 +11,6 @@ import { AIFreelance } from './components/ai/AIFreelance'
 import { MusicStatement } from './components/music/MusicStatement'
 import { MusicSongs } from './components/music/MusicSongs'
 import { MusicBehindSongs } from './components/music/MusicBehindSongs'
-
 import { MusicGallery } from './components/music/MusicGallery'
 import { getColors } from './constants/colors'
 import type { Mode } from './constants/colors'
@@ -37,63 +36,82 @@ export default function App() {
     <>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       <div
-        style={{ 
-          backgroundColor: c.bg, 
+        style={{
+          backgroundColor: c.bg,
           transition: 'background-color 0.9s cubic-bezier(0.43, 0.13, 0.23, 0.96)',
-          minHeight: '100vh', 
-          fontFamily: "'Inter', system-ui, sans-serif" 
+          minHeight: '100vh',
+          fontFamily: "'Inter', system-ui, sans-serif",
         }}
       >
-      <Navigation mode={mode} onToggle={handleToggle} />
-      <Hero mode={mode} onSwitchToMusic={switchToMusic} onSwitchToAI={switchToAI} />
+        {/* ── Navigation ─────────────────────────────────────── */}
+        <header>
+          <Navigation mode={mode} onToggle={handleToggle} />
+        </header>
 
-      <AnimatePresence mode="sync">
-        {mode === 'ai' ? (
-          <motion.div
-            key="ai"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            <AIAbout />
-            <AIProjects />
-            <AIHackathons />
-            <AISkills />
-            <AIFreelance />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="music"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            <MusicStatement />
-            <MusicSongs />
-            <MusicBehindSongs />
+        {/* ── Main content ───────────────────────────────────── */}
+        <main id="main-content">
+          {/* Hero is always visible — it establishes the primary entity */}
+          <Hero mode={mode} onSwitchToMusic={switchToMusic} onSwitchToAI={switchToAI} />
 
-            <MusicGallery />
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <AnimatePresence mode="sync">
+            {mode === 'ai' ? (
+              <motion.div
+                key="ai"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                <AIAbout />
+                <AIProjects />
+                <AIHackathons />
+                <AISkills />
+                <AIFreelance />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="music"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                <MusicStatement />
+                <MusicSongs />
+                <MusicBehindSongs />
+                <MusicGallery />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </main>
 
-      <footer style={{ borderTop: `1px solid ${c.border}`, transition: 'border-color 0.9s ease' }}>
-        <div className="footer-inner">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-            <span style={{ color: c.fg, fontSize: '0.9375rem', fontWeight: 500, letterSpacing: '-0.01em', transition: 'color 0.9s ease' }}>
-              Ghanshyam Ghimire
-            </span>
+        {/* ── Footer ─────────────────────────────────────────── */}
+        <footer
+          style={{ borderTop: `1px solid ${c.border}`, transition: 'border-color 0.9s ease' }}
+          aria-label="Site footer"
+        >
+          <div className="footer-inner">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <span
+                style={{
+                  color: c.fg,
+                  fontSize: '0.9375rem',
+                  fontWeight: 500,
+                  letterSpacing: '-0.01em',
+                  transition: 'color 0.9s ease',
+                }}
+              >
+                Ghanshyam Ghimire
+              </span>
+              <span style={{ color: c.muted, fontSize: '0.8125rem', transition: 'color 0.9s ease' }}>
+                {mode === 'ai' ? 'AI Engineer · Kathmandu University, Nepal' : 'Singer-Songwriter · Nepal'}
+              </span>
+            </div>
             <span style={{ color: c.muted, fontSize: '0.8125rem', transition: 'color 0.9s ease' }}>
-              {mode === 'ai' ? 'AI Engineer · Kathmandu University' : 'Singer-Songwriter · Nepal'}
+              © 2026
             </span>
           </div>
-          <span style={{ color: c.muted, fontSize: '0.8125rem', transition: 'color 0.9s ease' }}>
-            © 2026
-          </span>
-        </div>
-      </footer>
+        </footer>
       </div>
     </>
   )
