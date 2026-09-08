@@ -1,0 +1,18 @@
+# Ghanshyam Ghimire — Personal Portfolio
+
+> Official portfolio of Ghanshyam Ghimire, an AI engineering student at Kathmandu University, Nepal, and a singer-songwriter with four original Nepali songs released. This site presents his AI/ML engineering work, freelance projects, hackathon achievements, technical skills, and his music catalogue.
+
+## About
+
+Ghanshyam Ghimire is a BTech Artificial Intelligence student (Batch 2024–2028) at Kathmandu University, Nepal. He specialises in machine learning, computer vision, OCR systems, and NLP. Alongside engineering, he is a singer-songwriter who writes and releases original Nepali indie pop folk music under his own name. His dual identity — AI engineer by logic, musician by heart — is the central concept of this portfolio.
+
+## Full Content
+
+- [Complete site content in plain text](/llms-full.txt)
+
+## Contact
+
+- Email: ghanshyamghimiregg@gmail.com
+- GitHub: https://github.com/ghanshyamghimiregg
+- LinkedIn: https://www.linkedin.com/in/ghanshyam-ghimire-441854213/
+- Upwork: https://www.upwork.com/freelancers/~01043444993a97d448

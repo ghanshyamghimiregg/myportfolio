@@ -1,0 +1,242 @@
+# Ghanshyam Ghimire — Complete Portfolio Content
+# This file is provided for AI agents, LLMs, and crawlers that cannot execute JavaScript.
+# Last updated: 2026-09-08
+# Canonical URL: https://www.ghanshyamghimire.com.np/
+
+---
+
+## IDENTITY
+
+Name: Ghanshyam Ghimire
+Profession: AI Engineering Student & Singer-Songwriter
+Nationality: Nepali
+Location: Nepal
+Website: https://www.ghanshyamghimire.com.np/
+Email: ghanshyamghimiregg@gmail.com
+
+---
+
+## EDUCATION
+
+University: Kathmandu University
+Degree: BTech Artificial Intelligence
+Batch: 2024–2028
+Location: Dhulikhel, Nepal
+
+---
+
+## AI / ENGINEERING BIO
+
+I am a BTech Artificial Intelligence student at Kathmandu University, working on machine learning systems that solve real problems. I specialise in computer vision, OCR, NLP, and automation. I also build frontend interfaces — this portfolio itself is built with React, TypeScript, Vite, and Tailwind CSS.
+
+When I am not training models, I am writing songs. Both sides of my work are about the same thing: translating something felt into something real.
+
+---
+
+## TECHNICAL SKILLS
+
+### Machine Learning
+- TensorFlow
+- PyTorch
+- Scikit-Learn
+- Keras
+- Related projects: AgriVaani, VerifAI, Student Behavior Analysis
+
+### Computer Vision
+- OpenCV
+- YOLO
+- Data Annotation
+- Image Annotation
+- MediaPipe
+- Related projects: Student Behavior Analysis, Sign Language Translation, OCR System, VerifAI
+
+### Frontend Engineering
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Related projects: This Portfolio, VerifAI, OCR System
+
+### Programming
+- Python
+- C++
+- FastAPI
+- NumPy
+- Related projects: All projects
+
+### Other
+- Classification
+- Dataset Creation
+- SEO Content
+- Technical Writing
+- Related projects: AgriVaani, Freelance Work
+
+---
+
+## AI / ENGINEERING PROJECTS
+
+### VerifAI — KYC Verification Using AI
+VerifAI is an AI-powered identity verification platform that automates the KYC (Know Your Customer) process, enabling organisations to onboard users quickly, securely, and accurately. The system combines OCR, facial recognition, and liveness detection to verify identities in real time while minimising manual intervention.
+
+Key features:
+- Extracts information from identity documents using OCR, stored in a structured format
+- Captures user location data and live video footage during verification
+- Compares document photos, passport-size photos, and live video using facial recognition
+- Uses liveness detection to prevent spoofing with photos or pre-recorded videos
+- Auto-fills verification forms; users can review or update their information
+- Instantly verifies genuine users and flags mismatched or suspicious submissions
+- Reduces onboarding time, manual effort, operational costs, and human error
+- Suitable for fintech, banking, insurance, and digital platforms requiring KYC compliance
+
+Skills used: OCR, Computer Vision, Python, React Native, Django, TensorFlow, Machine Learning
+
+---
+
+### AgriVaani — Multilingual AI Agriculture Assistant for Nepali Farmers
+Developed AgriVaani, a multilingual agriculture assistant available in Nepali, English, Maithili, and Bhojpuri. It enables farmers to onboard via voice in their own language, creating detailed profiles with AI from their introductions. Farmers can ask agriculture-related questions via text, image, or voice and receive personalised answers based on their unique profiles. The app also provides location-based weather updates, daily market prices for crops, and an agriculture news feed automatically translated into their chosen language.
+
+Skills used: NLP, LLM, Python, STT & TTS
+
+---
+
+### Nepali Sign Language Translation
+NSLT (Nepali Sign Language Translator) is a deep learning project focused on character-level classification of Nepali Sign Language. Using computer vision techniques, a model was trained to recognise individual hand signs corresponding to Nepali alphabets. The system uses a webcam to capture gesture images and classifies them in real time using a convolutional neural network. This project aims to assist communication for the hearing-impaired by enabling accurate recognition of sign characters.
+
+Skills used: Data Annotation, AI Model Training, Computer Vision, Python
+
+---
+
+### OCR System for Student MCQ Answer Sheets
+Built a system that processes images of solved MCQ answer sheets, extracts answers using OCR, and displays results instantly in a clean UI. The solution also allows results to be downloaded in JSON format for reuse and analysis.
+
+Skills used: Python, OCR, React Native, Node.js, LLM
+
+---
+
+### Student Behavior Analysis — Skeleton Annotation & GCN Training
+Built a real-time student behavior recognition system using skeleton-based GCN. Role focused on data annotation and model training — labelling the SCB dataset with both bounding boxes and 17 COCO-format keypoints per person, forming full-body skeleton graphs (joints as nodes, bones as edges) for 8 behavior classes. Trained PCCTR-GCN on 30-frame temporal sequences with pose correction for occluded joints, improving sleeping detection from 65% to 85% accuracy and achieving 30+ FPS in real time.
+
+Skills used: Data Annotation, AI Model Training
+
+---
+
+## HACKATHONS
+
+Ghanshyam has participated in the following hackathons:
+- Winner, Lecathon 2.0
+- Runner-up, BMC InnovateX
+- Track Winner, Geo AI Hackathon @ KU (Kathmandu University)
+- Finalist, Bin There Hacked That
+- AI For Responsible Youth Hackathon
+- Hult Prize 2025 — Nationals
+- And counting...
+
+---
+
+## FREELANCE WORK (UPWORK)
+
+Profile: https://www.upwork.com/freelancers/~01043444993a97d448
+Status: Top Rated
+Job Success: 100%
+Projects Completed: 2
+Client Satisfaction: 4.75 / 5 stars
+Total Earnings: $110+
+Specialisation: AI Engineer & ML Developer
+
+### Client Review 1
+"Ghanshyam was great to work with! He delivered the project ahead of schedule and the quality was beyond my expectations. Very communicative and professional throughout the entire process. Highly recommended!" — Upwork client
+
+### Client Review 2
+"Excellent work on our OCR system. Ghanshyam understood our requirements clearly and implemented a robust solution that handles edge cases well. The code quality is high and well-documented." — Upwork client
+
+---
+
+## MUSIC
+
+Ghanshyam Ghimire is a Nepali singer-songwriter who writes and releases original songs in the indie pop folk genre, with influences from Nepali folk tradition. He has been performing music since 2013 and on stage since 2015.
+
+Tagline: "Reaching new people through music, one pair of ears at a time"
+Genre: Indie Pop Folk, Singer-Songwriter
+Language: Nepali
+Started Music: 2013
+
+### Streaming Profiles
+- Spotify: https://open.spotify.com/artist/1iSVIYJByt3Gp3j6BQqaEH
+- YouTube: https://youtube.com/@ghanshyamghimiremusic/
+- Apple Music: https://music.apple.com/np/artist/ghanshyam-ghimire/1752446129
+- TikTok: https://www.tiktok.com/@ghanshyamghimiremusic
+- Instagram: https://www.instagram.com/ghanshyamghimiremusic/
+
+---
+
+## ORIGINAL SONGS
+
+### 1. Gantabya (2024)
+Gantabya is a Nepali indie pop folk love song. The word "Gantabya" means destination in Nepali. The song is about finding a partner to journey through life with — the idea that the journey matters more when someone walks it with you. It was Ghanshyam's debut release and the song that proved to him he could translate his feelings into melodies that others could feel.
+
+Emotion: Love and companionship
+Spotify: https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS
+YouTube: https://youtu.be/yd7lsKnmB-Q
+Apple Music: https://music.apple.com/np/song/gantabya/1752446130
+
+---
+
+### 2. Sapana Ko Udaan (2025)
+Sapana Ko Udaan ("Flight of Dreams") is a Nepali song about the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad. It reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay. Writing this song, Ghanshyam wanted to capture the weight of watching everyone around you leave for abroad while you try to stay — and questioning whether that was the right decision.
+
+Emotion: Alone, Unsure
+Spotify: https://open.spotify.com/track/2JZnTfQlMtOJHAdY4PccsL
+YouTube: https://youtu.be/sUzGfuGjWQw
+Apple Music: https://music.apple.com/np/album/sapana-ko-udaan-single/1789733839
+
+---
+
+### 3. Nabhaniyeka Sapana (2025)
+Nabhaniyeka Sapana ("Unspoken Dreams") is a song about those silent emotions we carry — the feelings we never manage to say out loud, yet which shape our lives in the deepest ways. It is a story about how a father fulfils his child's unspoken dreams, silently. In that silence, love finds its purest form — not in words, but in quiet sacrifices and unspoken understanding.
+
+Emotion: Between silences
+Spotify: https://open.spotify.com/track/0Xk6qjuLqJxymXosbJZVh0
+YouTube: https://youtu.be/_cucMicv2jg
+Apple Music: https://music.apple.com/np/song/nabhaniyeka-sapana/1834930989
+
+---
+
+### 4. Aabhaas (2026) — Latest Release
+Aabhaas ("Realization") is a song about unexpressed love and the realization of falling for someone. It tells the story of returning from a date and finding yourself lost in their thoughts — the sweet आभास (aabhaas, realization) that maybe you are in love. You pen your thoughts, turn them into a melody where every note carries a piece of that moment. Aabhaas is a sweet, soft, introspective, and deeply personal realization of love.
+
+Emotion: Sweet realization of love
+Spotify: https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT
+YouTube: https://youtu.be/_Vc8b-n6-Xw
+Apple Music: https://music.apple.com/np/song/aabhaas/6769536549
+
+---
+
+## SOCIAL PROFILES & LINKS
+
+- GitHub: https://github.com/ghanshyamghimiregg
+- LinkedIn: https://www.linkedin.com/in/ghanshyam-ghimire-441854213/
+- Instagram: https://www.instagram.com/ghanshyamghimiremusic/
+- Facebook: https://www.facebook.com/ghanshyamghimiregg
+- YouTube: https://youtube.com/@ghanshyamghimiremusic/
+- TikTok: https://www.tiktok.com/@ghanshyamghimiremusic
+- Spotify (Artist): https://open.spotify.com/artist/1iSVIYJByt3Gp3j6BQqaEH
+- Apple Music (Artist): https://music.apple.com/np/artist/ghanshyam-ghimire/1752446129
+- Upwork: https://www.upwork.com/freelancers/~01043444993a97d448
+- Email: ghanshyamghimiregg@gmail.com
+
+---
+
+## RESUME / CV
+
+Available for download at: https://www.ghanshyamghimire.com.np/Ghanshyam_Ghimire_Resume.pdf
+
+---
+
+## SITE INFORMATION
+
+This website is a React + TypeScript single-page application deployed on Vercel. It features a dual-mode interface: an AI/Engineering mode and a Music mode, switchable via an interactive toggle. The site is fully responsive and works across all screen sizes from 320px to 1920px+.
+
+Built with: React, TypeScript, Vite, Tailwind CSS v4, Framer Motion, next-themes
+Deployed on: Vercel
+Domain: https://www.ghanshyamghimire.com.np/

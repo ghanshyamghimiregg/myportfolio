@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://ghanshyamghimire.com.np/sitemap.xml
+# AI agent readable content (llms.txt standard)
+# Full plain-text content for LLMs and AI agents that cannot execute JavaScript:
+# https://www.ghanshyamghimire.com.np/llms.txt
+# https://www.ghanshyamghimire.com.np/llms-full.txt
+
+# Sitemap
+Sitemap: https://www.ghanshyamghimire.com.np/sitemap.xml
