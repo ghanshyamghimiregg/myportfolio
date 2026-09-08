@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.ghanshyamghimire.com.np/</loc>
+    <loc>https://ghanshyamghimire.com.np/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.ghanshyamghimire.com.np/og-image.jpg</image:loc>
+      <image:loc>https://ghanshyamghimire.com.np/og-image.jpg</image:loc>
       <image:caption>Ghanshyam Ghimire — AI Engineer and Musician from Nepal</image:caption>
       <image:title>Ghanshyam Ghimire</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.ghanshyamghimire.com.np/songs/gantabya/cover.webp</image:loc>
+      <image:loc>https://ghanshyamghimire.com.np/songs/gantabya/cover.webp</image:loc>
       <image:caption>Gantabya — original song by Ghanshyam Ghimire (2024)</image:caption>
       <image:title>Gantabya by Ghanshyam Ghimire</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.ghanshyamghimire.com.np/songs/aabhaas/cover.webp</image:loc>
+      <image:loc>https://ghanshyamghimire.com.np/songs/aabhaas/cover.webp</image:loc>
       <image:caption>Aabhaas — original song by Ghanshyam Ghimire (2026)</image:caption>
       <image:title>Aabhaas by Ghanshyam Ghimire</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.ghanshyamghimire.com.np/llms-full.txt</loc>
+    <loc>https://ghanshyamghimire.com.np/llms-full.txt</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

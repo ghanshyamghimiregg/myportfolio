@@ -1,7 +1,7 @@
 # Ghanshyam Ghimire — Complete Portfolio Content
 # This file is provided for AI agents, LLMs, and crawlers that cannot execute JavaScript.
 # Last updated: 2026-09-08
-# Canonical URL: https://www.ghanshyamghimire.com.np/
+# Canonical URL: https://ghanshyamghimire.com.np/
 
 ---
 
@@ -11,7 +11,7 @@ Name: Ghanshyam Ghimire
 Profession: AI Engineering Student & Singer-Songwriter
 Nationality: Nepali
 Location: Nepal
-Website: https://www.ghanshyamghimire.com.np/
+Website: https://ghanshyamghimire.com.np/
 Email: ghanshyamghimiregg@gmail.com
 
 ---
@@ -141,7 +141,7 @@ Status: Top Rated
 Job Success: 100%
 Projects Completed: 2
 Client Satisfaction: 4.75 / 5 stars
-Total Earnings: $110+
+Total Earnings: $200+
 Specialisation: AI Engineer & ML Developer
 
 ### Client Review 1
@@ -229,7 +229,7 @@ Apple Music: https://music.apple.com/np/song/aabhaas/6769536549
 
 ## RESUME / CV
 
-Available for download at: https://www.ghanshyamghimire.com.np/Ghanshyam_Ghimire_Resume.pdf
+Available for download at: https://ghanshyamghimire.com.np/Ghanshyam_Ghimire_Resume.pdf
 
 ---
 
@@ -239,4 +239,4 @@ This website is a React + TypeScript single-page application deployed on Vercel.
 
 Built with: React, TypeScript, Vite, Tailwind CSS v4, Framer Motion, next-themes
 Deployed on: Vercel
-Domain: https://www.ghanshyamghimire.com.np/
+Domain: https://ghanshyamghimire.com.np/

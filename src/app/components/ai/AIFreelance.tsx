@@ -10,7 +10,7 @@ const STATS = [
   { label: 'Job Success', value: '100%' },
   { label: 'Completed', value: '2' },
   { label: 'Satisfaction', value: '4.75 ★' },
-  { label: 'Earnings', value: '$110+' },
+  { label: 'Earnings', value: '$200+' },
 ]
 
 function ReviewCard({ review, onClick }: { review: LocalReview; onClick: () => void }) {
