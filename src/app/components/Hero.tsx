@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { LinkedinIcon, InstagramIcon, FacebookIcon, GithubIcon, type LucideIcon } from 'lucide-react'
+import { LinkedinIcon, InstagramIcon, FacebookIcon, GithubIcon, FileText, type LucideIcon } from 'lucide-react'
 import { GuitarToggle } from './GuitarToggle'
 import { LaptopToggle } from './LaptopToggle'
 import { FloatingPortrait } from './FloatingPortrait'
+import { CVModal } from './ai/CVModal'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
 import aiPortrait from '../../assets/ggnewpic.webp'
@@ -126,9 +127,11 @@ const fadeUp = {
 export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
   const c = getColors(mode)
   const isAI = mode === 'ai'
+  const [cvOpen, setCvOpen] = useState(false)
 
   return (
-    <section className="hero-section" aria-label="Introduction — Ghanshyam Ghimire">
+    <>
+      <section className="hero-section" aria-label="Introduction — Ghanshyam Ghimire">
       <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
         <div className="hero-grid">
           {/* Left: Text content */}
@@ -202,6 +205,36 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
               <MagneticButton href="#about" mode={mode}>
                 {isAI ? 'About Me' : 'My Story'}
               </MagneticButton>
+              {isAI && (
+                <motion.button
+                  onClick={() => setCvOpen(true)}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '7px',
+                    padding: '13px 22px',
+                    borderRadius: '100px',
+                    border: `1.5px solid ${c.border}`,
+                    backgroundColor: 'transparent',
+                    color: c.fg,
+                    fontFamily: 'inherit',
+                    fontSize: '0.9375rem',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    letterSpacing: '-0.01em',
+                    minHeight: '48px',
+                    transition: 'border-color 0.18s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.borderColor = c.accent}
+                  onMouseLeave={e => e.currentTarget.style.borderColor = c.border}
+                >
+                  <FileText size={16} strokeWidth={2} />
+                  View CV
+                </motion.button>
+              )}
             </motion.div>
 
             <motion.div
@@ -321,6 +354,10 @@ export function Hero({ mode, onSwitchToMusic, onSwitchToAI }: Props) {
         </motion.div>
       </div>
     </section>
+
+    {/* CV Preview Modal */}
+    <CVModal open={cvOpen} onClose={() => setCvOpen(false)} />
+    </>
   )
 }
 

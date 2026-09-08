@@ -232,6 +232,12 @@ img:not(.portrait-img), video {
   gap: 16px;
 }
 
+/* Last card spans full width when there's an odd count */
+.skills-grid > *:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 8px);
+}
+
 .skills-header {
   display: flex;
   justify-content: space-between;

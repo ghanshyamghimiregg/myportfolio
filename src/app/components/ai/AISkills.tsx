@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
-import { Brain, Eye, Code2, Sparkles } from 'lucide-react'
+import { Brain, Eye, Code2, Sparkles, Layout } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { AI } from '../../constants/colors'
 
@@ -27,6 +27,14 @@ const SKILL_CLUSTERS: {
     skills: ['OpenCV', 'YOLO', 'Data Annotation', 'Image Annotation', 'MediaPipe'],
     relatedProjects: ['Student Behavior Analysis', 'Sign Language Translation', 'OCR System', 'VerifAi'],
     icon: Eye,
+  },
+  {
+    category: 'Frontend',
+    color: '#0891B2',
+    bg: '#ECFEFF',
+    skills: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    relatedProjects: ['This Portfolio', 'VerifAi', 'OCR System'],
+    icon: Layout,
   },
   {
     category: 'Programming',
