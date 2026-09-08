@@ -8,7 +8,7 @@ import { CVModal } from './ai/CVModal'
 import { getColors } from '../constants/colors'
 import type { Mode } from '../constants/colors'
 import aiPortrait from '../../assets/ggnewpic.webp'
-import musicPortrait from '../../assets/ggpotraight.png'
+import musicPortrait from '../../assets/ggpotraight.webp'
 
 interface Props {
   mode: Mode

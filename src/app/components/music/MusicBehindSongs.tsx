@@ -9,7 +9,7 @@ const STORIES = [
     song: 'Gantabya',
     chapter: 'The Destination',
     year: '2024',
-    image: '/songs/gantabya/cover.png',
+    image: '/songs/gantabya/cover.webp',
     text: [
       '"Gantabya" is a love story unlike any other. It\'s not just about the initial spark, but about finding a partner to conquer life\'s challenges with.',
       'Someone to grow beside, hand-in-hand, as you reach for your dreams. The word "Gantabya" means destination in Nepali, and this song captures that feeling of knowing your journey matters more when someone walks it with you.',
@@ -22,7 +22,7 @@ const STORIES = [
     song: 'Sapana Ko Udaan',
     chapter: 'The Flight of Dreams',
     year: '2025',
-    image: '/songs/sapana-ko-udaan/cover.jpg',
+    image: '/songs/sapana-ko-udaan/cover.webp',
     text: [
       '"Sapana Ko Udaan" is more than just a song—it is the story of every Nepali youth torn between staying in their homeland and seeking opportunities abroad. This heartfelt composition reflects the emotions, dreams, and struggles of those who leave, as well as those who choose to stay.',
       'I hope it resonates with you and inspires you to embrace your dreams, no matter where you are.',
@@ -35,7 +35,7 @@ const STORIES = [
     song: 'Nabhaniyeka Sapana',
     chapter: 'Unspoken Dreams',
     year: '2025',
-    image: '/songs/nabhaniyeka-sapana/cover.jpg',
+    image: '/songs/nabhaniyeka-sapana/cover.webp',
     text: [
       '"Nabhaniyeka Sapana" is a song born from the quiet corners of the heart — where words often remain unspoken but dreams live on. It’s about those silent emotions we carry, the feelings we never manage to say out loud, yet they shape our lives in the deepest ways.',
       'Its a story about how a dad fulfills his child\'s unspoken dreams, silently. In that silence, love finds its purest form. Not in words, but in quiet sacrifices and unspoken understanding.',
@@ -48,7 +48,7 @@ const STORIES = [
     song: 'Aabhaas',
     chapter: 'Realization of Love',
     year: '2026',
-    image: '/songs/aabhaas/cover.png',
+    image: '/songs/aabhaas/cover.webp',
     text: [
       'Aabhaas is a song that talks about unexpressed love. Its a musical love story about the realization of falling for someone.',
       'It tells the story of when you return from a date and find yourself lost in their thoughts. It’s about the realization ( आभास ) that maybe you are in love. You pen your thoughts, turn those into a melody where every note carries a piece of that moment. Aabhaas is a sweet realization of love which is soft, introspective, and deeply personal.',

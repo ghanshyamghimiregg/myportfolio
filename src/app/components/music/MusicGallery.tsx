@@ -10,18 +10,18 @@ import { ImageWithFallback } from '../figma/ImageWithFallback'
  * - square: roughly equal
  */
 const PHOTOS = [
-  { id: 'g1',  src: '/musicphotos/0524.jpg',            alt: 'Ghanshyam Ghimire performing live on stage' },
-  { id: 'g2',  src: '/musicphotos/0625 (1)(1).jpg',     alt: 'Ghanshyam Ghimire at a live music performance' },
-  { id: 'g3',  src: '/musicphotos/621380075_18079924583211383_6665212664267307199_n.jpg', alt: 'Ghanshyam Ghimire performing music live' },
-  { id: 'g4',  src: '/musicphotos/633865744_18378865819080876_5430391603270443274_n.jpg', alt: 'Ghanshyam Ghimire on stage with guitar' },
-  { id: 'g5',  src: '/musicphotos/0625 (1)(2).jpg',     alt: 'Ghanshyam Ghimire stage performance moment' },
-  { id: 'g6',  src: '/musicphotos/0613.jpg',             alt: 'Ghanshyam Ghimire performing on stage' },
-  { id: 'g7',  src: '/musicphotos/0625 (1).jpg',        alt: 'Ghanshyam Ghimire acoustic session' },
-  { id: 'g8',  src: '/musicphotos/648994522_18069324248268344_7263154056669889858_n.jpg', alt: 'Ghanshyam Ghimire live concert performance' },
-  { id: 'g9',  src: '/musicphotos/650917621_18093282259860295_8909871446461575516_n.jpg', alt: 'Ghanshyam Ghimire performing at a music event' },
-  { id: 'g10', src: '/musicphotos/724072731_1360426932738710_3054117027992186017_n.jpg',  alt: 'Ghanshyam Ghimire stage moment' },
-  { id: 'g11', src: '/musicphotos/625038055_18170918398391095_6324780337854495417_n (1).jpg', alt: 'Ghanshyam Ghimire singing live' },
-  { id: 'g12', src: '/musicphotos/SCR-20260625-eolv.jpeg', alt: 'Ghanshyam Ghimire behind the scenes at a music event' },
+  { id: 'g1',  src: '/musicphotos/0524.webp',            alt: 'Ghanshyam Ghimire performing live on stage' },
+  { id: 'g2',  src: '/musicphotos/0625 (1)(1).webp',     alt: 'Ghanshyam Ghimire at a live music performance' },
+  { id: 'g3',  src: '/musicphotos/621380075_18079924583211383_6665212664267307199_n.webp', alt: 'Ghanshyam Ghimire performing music live' },
+  { id: 'g4',  src: '/musicphotos/633865744_18378865819080876_5430391603270443274_n.webp', alt: 'Ghanshyam Ghimire on stage with guitar' },
+  { id: 'g5',  src: '/musicphotos/0625 (1)(2).webp',     alt: 'Ghanshyam Ghimire stage performance moment' },
+  { id: 'g6',  src: '/musicphotos/0613.webp',             alt: 'Ghanshyam Ghimire performing on stage' },
+  { id: 'g7',  src: '/musicphotos/0625 (1).webp',        alt: 'Ghanshyam Ghimire acoustic session' },
+  { id: 'g8',  src: '/musicphotos/648994522_18069324248268344_7263154056669889858_n.webp', alt: 'Ghanshyam Ghimire live concert performance' },
+  { id: 'g9',  src: '/musicphotos/650917621_18093282259860295_8909871446461575516_n.webp', alt: 'Ghanshyam Ghimire performing at a music event' },
+  { id: 'g10', src: '/musicphotos/724072731_1360426932738710_3054117027992186017_n.webp',  alt: 'Ghanshyam Ghimire stage moment' },
+  { id: 'g11', src: '/musicphotos/625038055_18170918398391095_6324780337854495417_n (1).webp', alt: 'Ghanshyam Ghimire singing live' },
+  { id: 'g12', src: '/musicphotos/SCR-20260625-eolv.webp', alt: 'Ghanshyam Ghimire behind the scenes at a music event' },
 ]
 
 function CollagePhoto({ photo, index, rotation }: { photo: typeof PHOTOS[0]; index: number; rotation: number }) {

@@ -8,7 +8,7 @@ const SONGS = [
     id: 'gantabya',
     title: 'Gantabya',
     year: '2024',
-    cover: '/songs/gantabya/cover.png',
+    cover: '/songs/gantabya/cover.webp',
     preview: '/songs/gantabya/preview.wav',
     streaming: {
       spotify: 'https://open.spotify.com/track/7xvQhOe2owHBQhyQXfhIOS',
@@ -21,7 +21,7 @@ const SONGS = [
     id: 'sapana-ko-udaan',
     title: 'Sapana Ko Udaan',
     year: '2025',
-    cover: '/songs/sapana-ko-udaan/cover.jpg',
+    cover: '/songs/sapana-ko-udaan/cover.webp',
     preview: '/songs/sapana-ko-udaan/preview.wav',
     streaming: {
       spotify: 'https://open.spotify.com/track/2JZnTfQlMtOJHAdY4PccsL',
@@ -34,7 +34,7 @@ const SONGS = [
     id: 'nabhaniyeka-sapana',
     title: 'Nabhaniyeka Sapana',
     year: '2025',
-    cover: '/songs/nabhaniyeka-sapana/cover.jpg',
+    cover: '/songs/nabhaniyeka-sapana/cover.webp',
     preview: '/songs/nabhaniyeka-sapana/preview.wav',
     streaming: {
       spotify: 'https://open.spotify.com/track/0Xk6qjuLqJxymXosbJZVh0',
@@ -47,7 +47,7 @@ const SONGS = [
     id: 'aabhaas',
     title: 'Aabhaas',
     year: '2026',
-    cover: '/songs/aabhaas/cover.png',
+    cover: '/songs/aabhaas/cover.webp',
     preview: '/songs/aabhaas/preview.wav',
     streaming: {
       spotify: 'https://open.spotify.com/track/79d2eT2COXsv9ThkO6ZGBT',
